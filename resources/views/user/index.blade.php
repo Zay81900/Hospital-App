@@ -61,7 +61,7 @@
     </div>
 </section>
 <!--/ End Slider Area -->
-{{-- 
+
 <!-- Start Schedule Area -->
 <section class="schedule">
     <div class="container">
@@ -764,6 +764,6 @@
         </div>
     </div>
 </section>
-<!-- /End Newsletter Area --> --}}
+<!-- /End Newsletter Area -->
 
 @endsection

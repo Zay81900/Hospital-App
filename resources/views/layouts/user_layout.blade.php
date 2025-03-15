@@ -47,6 +47,7 @@
 
     </head>
     <body>
+		<h1>Hello</h1>
 
 		<!-- Preloader -->
         <div class="preloader">

@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [UserController::class, 'index'])->name('layouts.user_layout');
+Route::get('/', [UserController::class, 'index'])->name('user.index');

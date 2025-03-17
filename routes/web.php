@@ -9,3 +9,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [UserController::class, 'index'])->name('user.index');
+Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');
+Route::get('/blog-detail', [UserController::class, 'blog_detail'])->name('user.blog_detail');

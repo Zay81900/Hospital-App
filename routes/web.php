@@ -14,3 +14,5 @@ Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/login', [AuthController::class,'login'])->name('auth.login');
 
 
+Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');
+Route::get('/blog-detail', [UserController::class, 'blog_detail'])->name('user.blog_detail');

@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function index() {
-        return view('layouts.user_layout');
+
+    public function login()
+    {
+        return view('Auth.login');
     }
     
 }

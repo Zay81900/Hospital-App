@@ -317,7 +317,7 @@
                 <div class="section-title">
                     <h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Our hospital maintains strict cleanliness protocols and hygiene standards to ensure a safe and healthy environment for all patients and staff.</p>
                 </div>
             </div>
         </div>
@@ -373,7 +373,7 @@
                 <div class="section-title">
                     <h2>We Offer Different Services To Improve Your Health</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>We provide comprehensive healthcare services with state-of-the-art facilities and expert medical professionals to ensure your well-being.</p>
                 </div>
             </div>
         </div>
@@ -383,7 +383,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-prescription"></i>
                     <h4><a href="service-details.html">General Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Comprehensive medical care for various health conditions with personalized treatment plans and expert medical supervision.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -392,7 +392,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-tooth"></i>
                     <h4><a href="service-details.html">Teeth Whitening</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Professional dental care services including teeth whitening, cleaning, and general dental health maintenance.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -401,7 +401,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-heart-alt"></i>
                     <h4><a href="service-details.html">Heart Surgery</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Advanced cardiac care with experienced cardiologists and modern surgical facilities for heart-related procedures.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -410,7 +410,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-listening"></i>
                     <h4><a href="service-details.html">Ear Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Specialized ear, nose, and throat treatments with modern diagnostic tools and expert ENT specialists.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -419,7 +419,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-eye-alt"></i>
                     <h4><a href="service-details.html">Vision Problems</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Comprehensive eye care services including vision correction, eye disease treatment, and regular eye check-ups.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -428,7 +428,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-blood"></i>
                     <h4><a href="service-details.html">Blood Transfusion</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <p>Safe and efficient blood transfusion services with proper screening and monitoring procedures.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -443,9 +443,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Provide You The Best Treatment In Resonable Price</h2>
+                    <h2>We Provide You The Best Treatment In Reasonable Price</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>We offer high-quality medical services at competitive prices, ensuring healthcare accessibility for all our patients.</p>
                 </div>
             </div>
         </div>
@@ -458,18 +458,18 @@
                         <div class="icon">
                             <i class="icofont icofont-ui-cut"></i>
                         </div>
-                        <h4 class="title">Plastic Suggery</h4>
+                        <h4 class="title">Plastic Surgery</h4>
                         <div class="price">
                             <p class="amount">$199<span>/ Per Visit</span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Initial Consultation</li>
+                        <li><i class="icofont icofont-ui-check"></i>Treatment Planning</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Surgical Procedure</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Post-operative Care</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Follow-up Sessions</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="#">Book Now</a>
@@ -493,11 +493,11 @@
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Dental Examination</li>
+                        <li><i class="icofont icofont-ui-check"></i>Teeth Cleaning</li>
+                        <li><i class="icofont icofont-ui-check"></i>Whitening Treatment</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Custom Whitening Kit</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Follow-up Care</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="#">Book Now</a>
@@ -514,18 +514,18 @@
                         <div class="icon">
                             <i class="icofont-heart-beat"></i>
                         </div>
-                        <h4 class="title">Heart Suggery</h4>
+                        <h4 class="title">Heart Surgery</h4>
                         <div class="price">
                             <p class="amount">$399<span>/ Per Visit</span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Cardiac Consultation</li>
+                        <li><i class="icofont icofont-ui-check"></i>Diagnostic Tests</li>
+                        <li><i class="icofont icofont-ui-check"></i>Surgical Procedure</li>
+                        <li><i class="icofont icofont-ui-check"></i>Post-surgery Care</li>
+                        <li><i class="icofont icofont-ui-check"></i>Rehabilitation Program</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="#">Book Now</a>
@@ -547,9 +547,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Keep up with Our Most Recent Medical News.</h2>
+                    <h2>Keep up with Our Most Recent Medical News</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Stay informed about the latest medical advancements, health tips, and hospital updates through our regular news articles.</p>
                 </div>
             </div>
         </div>
@@ -562,9 +562,9 @@
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">22 Aug, 2020</div>
-                            <h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+                            <div class="date">22 Aug, 2023</div>
+                            <h2><a href="blog-single.html">New Advanced Medical Equipment Installation</a></h2>
+                            <p class="text">We have recently installed state-of-the-art medical equipment to enhance our diagnostic and treatment capabilities.</p>
                         </div>
                     </div>
                 </div>
@@ -578,9 +578,9 @@
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">15 Jul, 2020</div>
-                            <h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+                            <div class="date">15 Jul, 2023</div>
+                            <h2><a href="blog-single.html">Tips for Maintaining Good Dental Health</a></h2>
+                            <p class="text">Learn essential tips and practices for maintaining optimal dental health from our expert dentists.</p>
                         </div>
                     </div>
                 </div>
@@ -594,9 +594,9 @@
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">05 Jan, 2020</div>
-                            <h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+                            <div class="date">05 Jan, 2023</div>
+                            <h2><a href="blog-single.html">New Specialized Medical Services</a></h2>
+                            <p class="text">We are proud to announce the launch of new specialized medical services to better serve our patients.</p>
                         </div>
                     </div>
                 </div>
@@ -655,7 +655,7 @@
                 <div class="section-title">
                     <h2>We Are Always Ready to Help You. Book An Appointment</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Schedule your appointment with our experienced medical professionals for personalized healthcare services.</p>
                 </div>
             </div>
         </div>
@@ -744,9 +744,9 @@
         <div class="row ">
             <div class="col-lg-6  col-12">
                 <!-- Start Newsletter Form -->
-                <div class="subscribe-text ">
+                <div class="subscribe-text">
                     <h6>Sign up for newsletter</h6>
-                    <p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero alterum.</p>
+                    <p class="">Stay updated with the latest health tips, medical news, and hospital updates. Subscribe to our newsletter today!</p>
                 </div>
                 <!-- End Newsletter Form -->
             </div>

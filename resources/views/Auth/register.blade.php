@@ -5,8 +5,8 @@
         <div class="container w-50">
             <div class="card shadow-sm mt-5 mb-5">
                 <div class="card-header bg-primary text-white text-center py-3">
-                    <h4 class="mb-0">Welcome Back</h4>
-                    <p class="text-white mb-0">Please login to your account</p>
+                    <h4 class="mb-0">Welcome To PluseCare</h4>
+                    <p class="text-white mb-0">Please Register to your account</p>
                 </div>
                 <div class="card-body p-4">
                     <form action="" method="POST">
@@ -50,7 +50,7 @@
                             </button>
                         </div>
                         <div class="text-center mt-4">
-                            <p class="mb-0">Don't have an account? <a href="{{ route('auth.register') }}" class="text-primary">Register here</a></p>
+                            <p class="mb-0">Don't have an account? <a href="" class="text-primary">Register here</a></p>
                         </div>
                     </form>
                 </div>

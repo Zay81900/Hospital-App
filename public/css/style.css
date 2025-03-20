@@ -105,6 +105,11 @@ body{
 	line-height: 22px;
 	margin-bottom: 10px;
 }
+
+.blood {
+	float: none;
+}
+
 .get-pro {
 	position: absolute;
 	left: -80px;

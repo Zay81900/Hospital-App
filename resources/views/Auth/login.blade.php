@@ -50,7 +50,7 @@
                             </button>
                         </div>
                         <div class="text-center mt-4">
-                            <p class="mb-0">Don't have an account? <a href="" class="text-primary">Register here</a></p>
+                            <p class="mb-0">Don't have an account? <a href="{{ route('auth.register') }}" class="text-primary">Register here</a></p>
                         </div>
                     </form>
                 </div>

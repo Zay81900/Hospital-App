@@ -86,7 +86,7 @@
 							<ul class="top-contact">
 								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
 								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-								<li><a href="{{route('auth.login')}}" class="btn">Login</a></li>
+								<li><a href="{{route('auth.login')}}" class="btn btn-dark btn-lg">Login</a></li>
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -114,9 +114,9 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+											<li class="active"><a href="{{ route('user.index')}}">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="index.html">Home Page 1</a></li>
+													<li><a href="{{ route('user.index')}}">Home Page 1</a></li>
 												</ul>
 											</li>
 											<li><a href="#">Doctos </a></li>

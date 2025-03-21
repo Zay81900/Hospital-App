@@ -153,8 +153,18 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>	
 			</div>
+			@if(session()->has('loginMessage'))
+				<div class="alert alert-success">
+					{{ session('loginMessage') }}
+				</div>
+			@endif
+			@if(session()->has('logoutMessage'))
+				<div class="alert alert-danger">
+					{{ session('logoutMessage') }}
+				</div>
+			@endif
 			<!--/ End Header Inner -->
 		</header>
 		<!-- End Header Area -->

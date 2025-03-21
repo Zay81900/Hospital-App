@@ -13,6 +13,8 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/login', [AuthController::class,'login'])->name('auth.login');
 Route::get('/register', [AuthController::class,'register'])->name('auth.register');
+Route::post('/LoginUser', [AuthController::class, 'LoginUser'])->name('auth.loginUser');
+Route::post('/logout', [AuthController::class, 'LogoutUser'])->name('auth.logoutUser');
 
 
 Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');

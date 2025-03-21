@@ -9,7 +9,7 @@
                     <p class="text-white mb-0">Please login to your account</p>
                 </div>
                 <div class="card-body p-4">
-                    <form action="" method="POST">
+                    <form action="{{ route('auth.loginUser') }}" method="POST">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="email" class="form-label">Email Address</label>

@@ -15,6 +15,12 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+    protected $authService;
+
+    public function __construct(AuthServiceInterface $authService)
+    {
+        $this->authService = $authService;
+    }
 
     public function login()
     {
@@ -51,6 +57,26 @@ class AuthController extends Controller
         } else {
             return back()->withErrors(['email' => 'Invalid email or password']);
         }
+    }
+
+    public function RegisterUser(RegisterCreateRequest $request)
+    {
+        $validatedData = $request->validated();
+        $user = $this->authService->register([
+            'username' => $validatedData['username'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+            'phone' => $validatedData['phone'],
+            'age' => $validatedData['age'],
+            'gender' => $validatedData['gender'],
+            'address' => $validatedData['address'],
+            'blood_type' => $validatedData['blood_type'],
+            'disease_description' => $validatedData['disease_description'],
+            'role' => 2, // Default role for regular users
+        ]);
+
+        return redirect()->route('auth.login')
+            ->with('RegisterMessage', 'Your have Registered Successfully...');
     }
 
     public function LogoutUser(Request $request)

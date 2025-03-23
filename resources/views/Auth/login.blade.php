@@ -1,6 +1,11 @@
 @extends('layouts.user_layout')
 
 @section('content')
+@if(session()->has('RegisterMessage'))
+    <div class="alert alert-success">
+        {{ session('RegisterMessage') }}
+    </div>
+@endif
     <section class="contact_section layout_padding">
         <div class="container w-50">
             <div class="card shadow-sm mt-5 mb-5">
@@ -28,7 +33,7 @@
                         <div class="form-group mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" 
-                                   class="form-control @error('password') is-invalid @enderror" 
+                                   class="form-control @error('email') is-invalid @enderror" 
                                    id="password" 
                                    name="password" 
                                    placeholder="Enter your password"

@@ -110,6 +110,10 @@ body{
 	float: none;
 }
 
+.gender {
+	float: none;
+}
+
 .get-pro {
 	position: absolute;
 	left: -80px;

@@ -9,7 +9,7 @@
                     <p class="text-white mb-0">Please Register to your account</p>
                 </div>
                 <div class="card-body p-4">
-                    <form action="" method="POST">
+                    <form action="{{ route('auth.registerUser') }}" method="POST">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Username</label>
@@ -64,6 +64,36 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" 
+                                   class="form-control @error('age') is-invalid @enderror" 
+                                   id="age" 
+                                   name="age" 
+                                   value="{{ old('age') }}"
+                                   placeholder="Enter your age"
+                                   min="1"
+                                   max="120"
+                                   required />
+                            @error('age')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="gender form-control @error('gender') is-invalid @enderror" 
+                                    id="gender" 
+                                    name="gender" 
+                                    required>
+                                <option value="">Select gender</option>
+                                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                                <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
+                            </select>
+                            @error('gender')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="address" class="form-label">Address</label>
                             <textarea class="form-control @error('address') is-invalid @enderror" 
                                       id="address" 
@@ -98,7 +128,7 @@
                             <label for="diseases" class="form-label">Diseases Description</label>
                             <textarea class="form-control @error('diseases') is-invalid @enderror" 
                                       id="diseases" 
-                                      name="diseases" 
+                                      name="disease_description" 
                                       placeholder="Describe any existing medical conditions or diseases"
                                       rows="3">{{ old('diseases') }}</textarea>
                             @error('diseases')

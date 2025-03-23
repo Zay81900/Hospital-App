@@ -94,7 +94,7 @@
 										</form>
 									</li>
 								@else		
-									<li><a href="{{route('auth.login')}}" class="btn btn-dark btn-lg">Login</a></li>
+									<li><a href="{{route('auth.login')}}" class="login btn">Login</a></li>
 								@endif
 							</ul>
 							<!-- End Top Contact -->

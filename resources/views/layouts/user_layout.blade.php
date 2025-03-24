@@ -86,7 +86,16 @@
 							<ul class="top-contact">
 								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
 								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-								<li><a href="{{route('auth.login')}}" class="btn btn-primary">Login</a></li>
+								@if(Auth::check())
+									<li>
+										<form action="{{ route('auth.logoutUser') }}" method="POST" style="display: inline;">
+											@csrf
+											<button type="submit" class="btn btn-dark btn-lg">Logout</button>
+										</form>
+									</li>
+								@else		
+									<li><a href="{{route('auth.login')}}" class="login btn">Login</a></li>
+								@endif
 							</ul>
 							<!-- End Top Contact -->
 						</div>

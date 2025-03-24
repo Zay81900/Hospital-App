@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function index()
     {
-        return view('user.doctors');
+        $doctors = Doctor::all();
+        return view('user.doctors', compact('doctors'));
     }
+
+    
 }

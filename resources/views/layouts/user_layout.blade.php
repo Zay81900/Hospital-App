@@ -18,6 +18,8 @@
 		<!-- Favicon -->
         <link rel="icon" href="/img/favicon.png">
 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -302,5 +304,7 @@
 		<script src="/js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="/js/main.js"></script>
+
+		<script src="/js/script.js"></script>
     </body>
 </html>

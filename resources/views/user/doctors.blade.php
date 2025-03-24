@@ -12,7 +12,7 @@
     <div class="row mb-5">
         <div class="col-md-8">
             <div class="input-group input-group-lg shadow-sm">
-                <input type="text" class="form-control border-0" placeholder="Search doctors by name or specialty...">
+                <input type="text" class="searchBar form-control border-0" placeholder="Search Here...">
                 <button class="btn btn-primary px-4" type="button">
                     <i class="fas fa-search"></i> Search
                 </button>
@@ -30,127 +30,184 @@
     </div>
 
     <!-- Doctors Grid -->
-    <div class="row g-4">
+    <div class="row g-4 mb-5">
         <!-- Doctor Card 1 -->
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                <div class="card-body text-center p-4">
-                    <div class="position-relative mb-4">
-                        <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
-                        <div class="position-absolute bottom-0 end-0">
-                            <span class="badge bg-success rounded-circle p-2"><i class="fas fa-check"></i></span>
+        @if(isset($doctors) && count($doctors) > 0)
+            @foreach ($doctors as $doctor)
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
+                    <div class="card-body text-center p-4">
+                        <div class="position-relative mb-4">
+                            @if($doctor->profile_image)
+                                <img src="{{ asset('storage/'.$doctor->profile_image) }}" class="rounded-circle doctor-image" alt="{{ $doctor->doctor_name }}">
+                            @else
+                                <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
+                            @endif
+                            <div class="position-absolute bottom-0 end-0">
+                                <span class="badge bg-{{ $doctor->status === 'active' ? 'success' : 'danger' }} rounded-circle p-2">
+                                    <i class="fas fa-{{ $doctor->status === 'active' ? 'check' : 'times' }} text-dark"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <h5 class="card-title fw-bold mb-2">{{ $doctor->doctor_name }}</h5>
+                        <p class="text-primary mb-3">{{ $doctor->specialization }}</p>
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <span class="badge bg-light text-primary border mr-2">{{ $doctor->qualification }}</span>
+                            <span class="badge bg-light text-primary border">{{ $doctor->experience }} Years Experience</span>
+                        </div>
+                        <p class="card-text text-muted mb-4">{{ $doctor->bio ?? 'Specialized healthcare professional' }}</p>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-outline-primary btn-lg mb-2">View Profile</a>
+                            <a href="#" class="btn btn-primary btn-lg">Book Appointment</a>
                         </div>
                     </div>
-                    <h5 class="card-title fw-bold mb-2">Dr. Sarah Johnson</h5>
-                    <p class="text-primary mb-3">Cardiologist</p>
-                    <div class="d-flex justify-content-center gap-2 mb-3">
-                        <span class="badge bg-light text-primary border">Heart Specialist</span>
-                        <span class="badge bg-light text-primary border">15+ Years Experience</span>
+                </div>
+            </div>
+            @endforeach
+        @else
+            <div class="col-12 text-center">
+                <p class="text-muted">No doctors found.</p>
+            </div>
+        @endif
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center mb-4">
+            <h2 class="fw-bold">What Our Patients Say</h2>
+            <p class="text-muted">Read testimonials from our satisfied patients</p>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+                        <div>
+                            <h5 class="mb-0">John Doe</h5>
+                            <small class="text-muted">Cardiology Patient</small>
+                        </div>
                     </div>
-                    <p class="card-text text-muted mb-4">Specialized in treating cardiovascular diseases and providing preventive care.</p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary btn-lg">View Profile</button>
-                        <button class="btn btn-primary btn-lg">Book Appointment</button>
+                    <p class="card-text">"The doctors here are extremely professional and caring. I received excellent treatment for my heart condition."</p>
+                    <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Doctor Card 2 -->
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                <div class="card-body text-center p-4">
-                    <div class="position-relative mb-4">
-                        <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
-                        <div class="position-absolute bottom-0 end-0">
-                            <span class="badge bg-success rounded-circle p-2"><i class="fas fa-check"></i></span>
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+                        <div>
+                            <h5 class="mb-0">Sarah Smith</h5>
+                            <small class="text-muted">Pediatrics Patient</small>
                         </div>
                     </div>
-                    <h5 class="card-title fw-bold mb-2">Dr. Michael Chen</h5>
-                    <p class="text-primary mb-3">Neurologist</p>
-                    <div class="d-flex justify-content-center gap-2 mb-3">
-                        <span class="badge bg-light text-primary border">Brain Specialist</span>
-                        <span class="badge bg-light text-primary border">12+ Years Experience</span>
-                    </div>
-                    <p class="card-text text-muted mb-4">Expert in treating neurological disorders and brain-related conditions.</p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary btn-lg">View Profile</button>
-                        <button class="btn btn-primary btn-lg">Book Appointment</button>
+                    <p class="card-text">"The pediatric department is amazing! They made my child feel comfortable and provided excellent care."</p>
+                    <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Doctor Card 3 -->
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                <div class="card-body text-center p-4">
-                    <div class="position-relative mb-4">
-                        <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
-                        <div class="position-absolute bottom-0 end-0">
-                            <span class="badge bg-success rounded-circle p-2"><i class="fas fa-check"></i></span>
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+                        <div>
+                            <h5 class="mb-0">Mike Johnson</h5>
+                            <small class="text-muted">Orthopedics Patient</small>
                         </div>
                     </div>
-                    <h5 class="card-title fw-bold mb-2">Dr. Emily Rodriguez</h5>
-                    <p class="text-primary mb-3">Pediatrician</p>
-                    <div class="d-flex justify-content-center gap-2 mb-3">
-                        <span class="badge bg-light text-primary border">Child Specialist</span>
-                        <span class="badge bg-light text-primary border">10+ Years Experience</span>
-                    </div>
-                    <p class="card-text text-muted mb-4">Dedicated to providing comprehensive healthcare for children of all ages.</p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary btn-lg">View Profile</button>
-                        <button class="btn btn-primary btn-lg">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Doctor Card 4 -->
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                <div class="card-body text-center p-4">
-                    <div class="position-relative mb-4">
-                        <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
-                        <div class="position-absolute bottom-0 end-0">
-                            <span class="badge bg-success rounded-circle p-2"><i class="fas fa-check"></i></span>
-                        </div>
-                    </div>
-                    <h5 class="card-title fw-bold mb-2">Dr. David Kim</h5>
-                    <p class="text-primary mb-3">Orthopedic Surgeon</p>
-                    <div class="d-flex justify-content-center gap-2 mb-3">
-                        <span class="badge bg-light text-primary border">Bone Specialist</span>
-                        <span class="badge bg-light text-primary border">18+ Years Experience</span>
-                    </div>
-                    <p class="card-text text-muted mb-4">Specialized in treating bone and joint conditions with advanced surgical techniques.</p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary btn-lg">View Profile</button>
-                        <button class="btn btn-primary btn-lg">Book Appointment</button>
+                    <p class="card-text">"The orthopedic team helped me recover from my sports injury. Their expertise is unmatched!"</p>
+                    <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pagination -->
-    {{-- <div class="row mt-5">
-        <div class="col-12">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link border-0 mx-1" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                    </li>
-                    <li class="page-item active"><a class="page-link border-0 mx-1 rounded-circle" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link border-0 mx-1 rounded-circle" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link border-0 mx-1 rounded-circle" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link border-0 mx-1" href="#"><i class="fas fa-chevron-right"></i></a>
-                    </li>
-                </ul>
-            </nav>  
+    <!-- FAQ Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center mb-4">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+            <p class="text-muted">Find answers to common questions about our doctors and services</p>
         </div>
-    </div> --}}
+        <div class="col-lg-8 mx-auto">
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item border-0 shadow-sm mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            How do I book an appointment with a doctor?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can book an appointment by clicking the "Book Appointment" button on any doctor's card. You'll be redirected to our appointment booking system where you can select your preferred date and time.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 shadow-sm mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What insurance plans do you accept?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We accept most major insurance plans. Please contact our billing department for specific information about your insurance provider.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Can I get a second opinion from another doctor?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we encourage second opinions. You can request a consultation with another specialist within our hospital or transfer your medical records to another facility.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-5 text-center">
+                    <h3 class="fw-bold mb-3">Stay Updated with Healthcare News</h3>
+                    <p class="text-muted mb-4">Subscribe to our newsletter for the latest updates on our doctors, services, and healthcare tips.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 @endsection

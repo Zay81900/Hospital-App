@@ -1758,6 +1758,8 @@ body{
 	Start Doctors CSS
 ======================*/ 
 
+
+
 .doctor-image {
 	width: 150px;
 	height: 150px;
@@ -1765,6 +1767,21 @@ body{
 	border: 4px solid #fff;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.searchBar {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 1px solid #090909;
+    transition: border-color 0.3s ease;	
+}
+
+.searchBar:focus {
+    border-color: #070707;
+    outline: none;
+}
+
+
+
 
 .hover-shadow {
 	transition: all 0.3s ease;

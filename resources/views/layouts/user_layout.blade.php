@@ -128,13 +128,13 @@
 													<li><a href="{{ route('user.index')}}">Home Page 1</a></li>
 												</ul>
 											</li>
-											<li><a href="#">Doctos </a></li>
+											<li><a href="{{ route('user.doctors') }}">Doctors </a></li>
 											<li><a href="#">Services </a></li>
 											<li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
 													<li><a href="404.html">404 Error</a></li>
 												</ul>
-											</li>
+												</li>
 											<li><a href="">Blogs <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
 													<li><a href="{{ route('user.blog_detail') }}">Blog Details</a></li>

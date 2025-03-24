@@ -123,9 +123,9 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="{{ route('user.index')}}">Home <i class="icofont-rounded-down"></i></a>
+											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="{{ route('user.index')}}">Home Page 1</a></li>
+													<li><a href="index.html">Home Page 1</a></li>
 												</ul>
 											</li>
 											<li><a href="{{ route('user.doctors') }}">Doctors </a></li>
@@ -153,18 +153,8 @@
 							</div>
 						</div>
 					</div>
-				</div>	
+				</div>
 			</div>
-			@if(session()->has('loginMessage'))
-				<div class="alert alert-success">
-					{{ session('loginMessage') }}
-				</div>
-			@endif
-			@if(session()->has('logoutMessage'))
-				<div class="alert alert-danger">
-					{{ session('logoutMessage') }}
-				</div>
-			@endif
 			<!--/ End Header Inner -->
 		</header>
 		<!-- End Header Area -->
@@ -193,7 +183,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>About Us</h2>
-								<p>Welcome to our hospital. We are committed to providing top-quality healthcare services with experienced doctors and state-of-the-art facilities. Your health and well-being are our priority.</p>
+								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
 								<!-- Social -->
 								<ul class="social">
 									<li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -233,7 +223,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Open Hours</h2>
-								<p>Our hospital is open to serve you at the following hours. Please note that these hours are subject to change on holidays or special events.</p>
+								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
 								<ul class="time-sidual">
 									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
 									<li class="day">Saturday <span>9.00-18.30</span></li>
@@ -244,7 +234,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Newsletter</h2>
-								<p>Stay updated with the latest news and updates from our hospital by subscribing to our newsletter.</p>
+								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
 								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
 									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
 										onblur="this.placeholder = 'Your email address'" required="" type="email">

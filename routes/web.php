@@ -21,3 +21,4 @@ Route::post('/logout', [AuthController::class, 'LogoutUser'])->name('auth.logout
 
 
 Route::get('/doctors', [DoctorController::class,'index'])->name('user.doctors');
+Route::get('/doctorslist', [DoctorController::class,'listDoctors'])->name('doctors.list');

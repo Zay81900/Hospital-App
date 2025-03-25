@@ -1,6 +1,7 @@
 @extends('layouts.user_layout')
 
 @section('content')
+
 <div class="container py-5">
     <!-- Page Header -->
     <div class="text-center mb-5">
@@ -11,27 +12,31 @@
     <!-- Search and Filter Section -->
     <div class="row mb-5">
         <div class="col-md-8">
-            <div class="input-group input-group-lg shadow-sm">
-                <input type="text" class="searchBar form-control border-0" placeholder="Search Here...">
-                <button class="btn btn-primary px-4" type="button">
+            <form action="{{ route('doctors.list') }}" method="GET" class="input-group input-group-lg shadow-sm">
+                <input type="text" name="search" class="searchBar form-control border-0" placeholder="Search Here..." value="{{ request('search') }}">
+                <button class="btn btn-primary px-4" type="submit">
                     <i class="fas fa-search"></i> Search
                 </button>
-            </div>
+            </form>
         </div>
         <div class="col-md-4">
-            <select class="form-select form-select-lg shadow-sm border-0">
-                <option selected>Filter by Department</option>
-                <option>Cardiology</option>
-                <option>Neurology</option>
-                <option>Pediatrics</option>
-                <option>Orthopedics</option>
-            </select>
+            <form action="{{ route('doctors.list') }}" method="GET" id="filterForm">
+                <select name="specialization" class="form-select form-select-lg shadow-sm border-0" onchange="this.form.submit()">
+                    <option value="">All Specializations</option>
+                    <option value="Cardiologist" {{ request('specialization') === 'Cardiologist' ? 'selected' : '' }}>Cardiology</option>
+                    <option value="Neurologist" {{ request('specialization') === 'Neurologist' ? 'selected' : '' }}>Neurology</option>
+                    <option value="Pediatrics" {{ request('specialization') === 'Pediatrics' ? 'selected' : '' }}>Pediatrics</option>
+                    <option value="Orthopedic Surgeon" {{ request('specialization') === 'Orthopedic Surgeon' ? 'selected' : '' }}>Orthopedics</option>
+                </select>
+                @if(request('search'))
+                    <input type="hidden" name="search" value="{{ request('search') }}">
+                @endif
+            </form>
         </div>
     </div>
 
     <!-- Doctors Grid -->
     <div class="row g-4 mb-5">
-        <!-- Doctor Card 1 -->
         @if(isset($doctors) && count($doctors) > 0)
             @foreach ($doctors as $doctor)
             <div class="col-md-4">
@@ -39,9 +44,9 @@
                     <div class="card-body text-center p-4">
                         <div class="position-relative mb-4">
                             @if($doctor->profile_image)
-                                <img src="{{ asset('storage/'.$doctor->profile_image) }}" class="rounded-circle doctor-image" alt="{{ $doctor->doctor_name }}">
+                                <img src="{{ asset("images/doctors/{$doctor->profile_image}") }}" class="rounded-circle doctor-image" alt="{{ $doctor->doctor_name }}">
                             @else
-                                <img src="https://via.placeholder.com/150" class="rounded-circle doctor-image" alt="Doctor">
+                                <img src="images/doctors/default.jpeg" class="rounded-circle doctor-image" alt="Doctor">
                             @endif
                             <div class="position-absolute bottom-0 end-0">
                                 <span class="badge bg-{{ $doctor->status === 'active' ? 'success' : 'danger' }} rounded-circle p-2">
@@ -70,6 +75,14 @@
             </div>
         @endif
     </div>
+
+    <!-- Pagination -->
+    @if(isset($doctors) && $doctors->hasPages())
+    <div class="d-flex flex-column justify-content-center align-items-center mt-4 mb-5">
+        {{ $doctors->links('vendor.pagination.bootstrap-5') }}
+    </div>
+    @endif
+
 
     <!-- Testimonials Section -->
     <div class="row mb-5">

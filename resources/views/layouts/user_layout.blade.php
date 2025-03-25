@@ -125,9 +125,9 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+											<li class="active"><a href="{{ route('user.index') }}">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="index.html">Home Page 1</a></li>
+													<li><a href="{{ route('user.index') }}"">Home Page 1</a></li>
 												</ul>
 											</li>
 											<li><a href="{{ route('user.doctors') }}">Doctors </a></li>

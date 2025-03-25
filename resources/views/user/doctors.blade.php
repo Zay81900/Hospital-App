@@ -91,7 +91,7 @@
             <p class="text-muted">Read testimonials from our satisfied patients</p>
         </div>
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm hover-shadow transition-all">
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-3">
                         <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm hover-shadow transition-all">
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-3">
                         <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
@@ -133,7 +133,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm hover-shadow transition-all">
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-3">
                         <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
@@ -165,7 +165,7 @@
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        <button class="accordion-button rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             How do I book an appointment with a doctor?
                         </button>
                     </h2>
@@ -177,11 +177,11 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             What insurance plans do you accept?
                         </button>
                     </h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div id="faq2" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             We accept most major insurance plans. Please contact our billing department for specific information about your insurance provider.
                         </div>
@@ -189,11 +189,11 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             Can I get a second opinion from another doctor?
                         </button>
                     </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div id="faq3" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             Yes, we encourage second opinions. You can request a consultation with another specialist within our hospital or transfer your medical records to another facility.
                         </div>
@@ -211,12 +211,18 @@
                     <h3 class="fw-bold mb-3">Stay Updated with Healthcare News</h3>
                     <p class="text-muted mb-4">Subscribe to our newsletter for the latest updates on our doctors, services, and healthcare tips.</p>
                     <form class="row g-3 justify-content-center">
-                        <div class="col-md-8">
-                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+                        <div class="col-md-12">
+                            <div class="subscribe-form ">
+                                <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                    <input name="EMAIL" placeholder="Your email address" class="common-input p-2" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Your email address'" required="" type="email">
+                                    <button class="btn">Subscribe</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe Now</button>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>

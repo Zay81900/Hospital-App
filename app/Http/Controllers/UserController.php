@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator as ValidatorFacade;
-use Illuminate\Support\Facades\URL;
-use App\Models\User;
+use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserEditRequest;
+use App\Contracts\Services\UserServiceInterface;
 
 
 class UserController extends Controller
 {
+    private $userService;
+ 
+    /**
+      * Create a new controller instance.
+      * @param userInterface $taskServiceInterface
+      * @return void
+      */
+ 
+    public function __construct(UserServiceInterface $userServiceInterface) 
+    {
+       $this->userService = $userServiceInterface;
+    }
+
     public function index() {
         return view('user.index');
     }
@@ -26,4 +33,15 @@ class UserController extends Controller
     public function blog_detail() {
         return view('user.blog_detail');
     }
+
+    public function Profile() {
+        return view('user.profile');
+    }
+
+//     public function ProfileUpdate(ProfileUpdateRequest $request) {  
+//         $user = Auth::user();
+//         $this->profileService->updateProfile($user, $request->all());
+//         Session::flash('success','Profile updated successfully.');   
+//         return view('user.profile', compact('user')); 
+//     }
 }

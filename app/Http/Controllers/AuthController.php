@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Contracts\Services\AuthServiceInterface;
 use App\Http\Requests\RegisterCreateRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -32,51 +33,101 @@ class AuthController extends Controller
         return view('Auth.register');
     }
 
-    public function LoginUser(Request $request)
+    // public function LoginUser(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => ['required', 'email', 'exists:users,email'],
+    //         'password' => ['required'],
+    //     ]);
+
+    //     $user = User::where('email', $credentials['email'])->first();
+
+    //     if (Auth::attempt($credentials)) {
+    //         $user->password = Hash::make($credentials['password']);
+    //         $token = $user->createToken('token')->plainTextToken;
+    //         if ($user->role == 1) {
+    //             return redirect()->route('admin.index')
+    //                 ->with('loginMessage','You Have Successfully logined...')
+    //                 ->with('token', $token);
+    //         } else if ($user->role == 2) {
+    //             return redirect()->route('user.index')
+    //                 ->with('loginMessage','You Have Successfully logined...')
+    //                 ->with('token', $token);
+    //         }
+
+    //     } else {
+    //         return back()->withErrors(['email' => 'Invalid email or password']);
+    //     }
+    // }
+
+    // public function RegisterUser(RegisterCreateRequest $request)
+    // {
+    //     $validatedData = $request->validated();
+    //     $user = $this->authService->register([
+    //         'username' => $validatedData['username'],
+    //         'email' => $validatedData['email'],
+    //         'password' => $validatedData['password'],
+    //         'phone' => $validatedData['phone'],
+    //         'age' => $validatedData['age'],
+    //         'gender' => $validatedData['gender'],
+    //         'address' => $validatedData['address'],
+    //         'blood_type' => $validatedData['blood_type'],
+    //         'disease_description' => $validatedData['disease_description'],
+    //         'role' => 2, // Default role for regular users
+    //     ]);
+
+    //     return redirect()->route('auth.login')
+    //         ->with('RegisterMessage', 'Your have Registered Successfully...');
+    // }
+
+    public function registerUser(RegisterCreateRequest $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email', 'exists:users,email'],
-            'password' => ['required'],
+        $validatedData = $request->validated();
+        $this->authService->register([
+            'name' => $validatedData['username'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+            'role' => 2, // Default role for regular users
+            // 'image' => $validatedData['image'],
+            'address' => $validatedData['address'],
+            'gender' => $validatedData['gender'],
+            'age' => $validatedData['age'],
+            'blood_type' => $validatedData['blood_type'],
+            'disease_description' => $validatedData['disease_description'],
+            'phone' => $validatedData['phone'],
         ]);
 
-        $user = User::where('email', $credentials['email'])->first();
+        // $imageName = time() . '.' . $validatedData['image']->extension();
+        // $validatedData['image']->move(public_path('images/user/'), $imageName);
+
+        return redirect()->route('auth.login')
+            ->with('message', 'Your have Registered Successfully...');
+    }
+
+    public function LoginUser(LoginRequest $request)
+    {
+        $credentials = [
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ];
+
+        $user = User::where('email', $request['email'])->first();
 
         if (Auth::attempt($credentials)) {
-            $user->password = Hash::make($credentials['password']);
             $token = $user->createToken('token')->plainTextToken;
             if ($user->role == 1) {
                 return redirect()->route('admin.index')
-                    ->with('loginMessage','You Have Successfully logined...')
+                    ->with('message', 'You Have Successfully logined...')
                     ->with('token', $token);
             } else if ($user->role == 2) {
                 return redirect()->route('user.index')
-                    ->with('loginMessage','You Have Successfully logined...')
+                    ->with('message', 'You Have Successfully logined...')
                     ->with('token', $token);
             }
 
         } else {
             return back()->withErrors(['email' => 'Invalid email or password']);
         }
-    }
-
-    public function RegisterUser(RegisterCreateRequest $request)
-    {
-        $validatedData = $request->validated();
-        $user = $this->authService->register([
-            'username' => $validatedData['username'],
-            'email' => $validatedData['email'],
-            'password' => $validatedData['password'],
-            'phone' => $validatedData['phone'],
-            'age' => $validatedData['age'],
-            'gender' => $validatedData['gender'],
-            'address' => $validatedData['address'],
-            'blood_type' => $validatedData['blood_type'],
-            'disease_description' => $validatedData['disease_description'],
-            'role' => 2, // Default role for regular users
-        ]);
-
-        return redirect()->route('auth.login')
-            ->with('RegisterMessage', 'Your have Registered Successfully...');
     }
 
     public function LogoutUser(Request $request)

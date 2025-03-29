@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Contracts\Services\UserServiceInterface;
-
+use App\Models\Auth;
 
 class UserController extends Controller
 {
@@ -38,10 +38,18 @@ class UserController extends Controller
         return view('user.profile');
     }
 
-//     public function ProfileUpdate(ProfileUpdateRequest $request) {  
-//         $user = Auth::user();
-//         $this->profileService->updateProfile($user, $request->all());
-//         Session::flash('success','Profile updated successfully.');   
-//         return view('user.profile', compact('user')); 
-//     }
+    // public function edit($id) {
+    //     $user = $this->userService->edit($id);
+    //     return view('user.profile.update', ['user'=> $user]);
+    // }
+
+    public function ProfileUpdate(UserEditRequest $request, $id) {
+        $user = Auth::user();
+        $id = 1;
+        $this->userService->update($id, $request->validated());
+        
+        return redirect()->route('user.profile')->with('success','Profile Updated Successfully'. $id .'.'); 
+    }
+
+
 }

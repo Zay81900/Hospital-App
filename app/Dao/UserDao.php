@@ -58,10 +58,9 @@ class UserDao implements UserDaoInterface
         $user = User::findOrFail($id);
 
         if ($user) {
-            $user->name = $data['name'];
-            $user->password = Hash::make($data['password']);
-            $user->role = $data['role'];
-            $user->image = $data['image']->getClientOriginalName();
+            $user->name = $data['username'];
+            // $user->password = Hash::make($data['password']);
+            $user->image = $data['image'];
             $user->address = $data['address'];
             $user->gender = $data['gender'];
             $user->age = $data['age'];

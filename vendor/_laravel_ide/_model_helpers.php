@@ -517,6 +517,32 @@ namespace App\Models {
     /**
      * App\Models\Doctor
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $status
+     * @property string|null $availability
+     * @property string|null $profile_image
+     * @property string|null $bio
+     * @property string $qualification
+     * @property mixed $experience
+     * @property string $specialization
+     * @property string $phone
+     * @property string $email
+     * @property string $doctor_name
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereDoctorName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereEmail($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor wherePhone($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereSpecialization($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereExperience($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereQualification($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereBio($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereProfileImage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereAvailability($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor query()

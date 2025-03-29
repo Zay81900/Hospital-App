@@ -1,5 +1,13 @@
 @extends('layouts.user_layout')
 @section('content')
+
+<div class="container">
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+</div>
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-4">
@@ -14,7 +22,7 @@
                     <p class="text-muted mb-1">Patient</p>
                     <p class="text-muted mb-4">{{ Auth::user()->email }}</p>
                     <div class="d-flex justify-content-center mb-2">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal" onclick="openProfileModal()">
                             Edit Profile
                         </button>
                     </div>
@@ -105,10 +113,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="updateProfileModalLabel">Update Profile</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('profile/edit/'.Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="name" class="form-label">Full Name</label>
@@ -124,15 +133,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label>
-                        <div class="form-check ml-4">
+                        <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="male" value="male" @checked(Auth::user()->gender == 'male')>
                             <label class="form-check-label" for="male">Male</label>
                         </div>
-                        <div class="form-check ml-4">
+                        <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="female" value="female" @checked(Auth::user()->gender == 'female')>
                             <label class="form-check-label" for="female">Female</label>
                         </div>
-                        <div class="form-check ml-4">
+                        <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="other" value="other" @checked(Auth::user()->gender == 'other')>
                             <label class="form-check-label" for="other">Other</label>
                         </div>

@@ -13,7 +13,7 @@ Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');
 Route::get('/blog-detail', [UserController::class, 'blog_detail'])->name('user.blog_detail');
 Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
-Route::get('/profile/update', [UserController::class, 'profile_detail'])->name('user.profile.update');
+Route::put('/profile/edit/{id}', [UserController::class, 'ProfileUpdate'])->name('user.profile_update');
 
 
 Route::get('/login', [AuthController::class,'login'])->name('auth.login');

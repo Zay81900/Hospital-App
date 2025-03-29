@@ -47,6 +47,11 @@
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/responsive.css">
 
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
     </head>
     <body>
 
@@ -90,7 +95,11 @@
 								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
 								@if(Auth::check())
 									<li>
-										<a href="{{ route ('user.profile') }} " class="profile-link mr-2"><img src="images/user/user_default.png" alt="" style="width: 50px;"></a>
+										<form action="{{ route('auth.logoutUser') }}" method="POST" style="display: inline;">
+											@csrf
+											<a href="{{ route ('user.profile') }} " class="profile-link mr-2"><img src="images/user/user_default.png" alt="" style="width: 50px;"></a>
+											{{-- <button type="submit" class="btn btn-dark btn-lg">Logout</button> --}}
+										</form>
 										<form action="{{ route('auth.logoutUser') }}" method="POST" style="display: inline;">
 											@csrf
 											<button type="submit" class="btn btn-dark btn-lg">Logout</button>
@@ -307,5 +316,8 @@
 		<script src="/js/main.js"></script>
 
 		<script src="/js/script.js"></script>
+
+		<!-- Bootstrap JS (must be included before your script.js) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

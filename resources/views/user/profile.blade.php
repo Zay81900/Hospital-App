@@ -22,9 +22,10 @@
                     <p class="text-muted mb-1">Patient</p>
                     <p class="text-muted mb-4">{{ Auth::user()->email }}</p>
                     <div class="d-flex justify-content-center mb-2">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal" onclick="openProfileModal()">
+                        <a href="{{ url('/user/profile/'.Auth::user()->id.'/edit') }}" class="btn btn-primary btn-sm">Edit Profile</a>
+                        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal" onclick="openProfileModal()">
                             Edit Profile
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>
@@ -108,14 +109,14 @@
 </div>
 
 <!-- Update Profile Modal -->
-<div class="modal fade" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="updateProfileModalLabel">Update Profile</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form action="{{ url('profile/edit/'.Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('user.profile_update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
@@ -162,5 +163,5 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

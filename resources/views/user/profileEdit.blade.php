@@ -30,11 +30,11 @@
                                      name="image" 
                                      alt="Doctor">
                             @endif
-                            <div class="position-absolute bottom-0 end-0 bg-primary rounded-circle p-2">
-                                <label for="image" class="mb-0" style="cursor: pointer;">
+                            <div class="position-absolute bottom-0 end-0 bg-primary rounded-circle p-2 shadow-sm hover-scale">
+                                <label for="image" class="mb-0 d-flex align-items-center justify-content-center" style="cursor: pointer; width: 32px; height: 32px;">
                                     <i class="fas fa-camera text-white"></i>
                                 </label>
-                                <input type="file" class="form-control" id="image" name="image" class="d-none" accept="image/*" onchange="previewImage(this)">
+                                <input type="file" class="form-control d-none" id="image" name="image" accept="image/*" onchange="previewImage(this)">
                             </div>
                         </div>
                     </div>

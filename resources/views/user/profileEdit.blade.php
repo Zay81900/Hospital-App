@@ -34,7 +34,7 @@
                                 <label for="image" class="mb-0" style="cursor: pointer;">
                                     <i class="fas fa-camera text-white"></i>
                                 </label>
-                                <input type="file" id="image" name="image" class="d-none" accept="image/*" onchange="previewImage(this)">
+                                <input type="file" class="form-control" id="image" name="image" class="d-none" accept="image/*" onchange="previewImage(this)">
                             </div>
                         </div>
                     </div>

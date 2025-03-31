@@ -55,29 +55,12 @@ class UserDao implements UserDaoInterface
     */
     public function update($id, array $data): void
     {
-        // dd($id);
-        // $user = User::findOrFail($id);
-
-        // if ($user) {
-        //     $user->username = $data['username'];
-        //     $user->email = $data['email'];
-        //     // $user->password = Hash::make($data['password']);
-        //     $user->image = $data['image'];
-        //     $user->address = $data['address'];
-        //     $user->gender = $data['gender'];
-        //     $user->age = $data['age'];
-        //     $user->phone = $data['phone'];
-        
-        //     $user->save();
-        // }
         $user = User::findOrFail($id);
-        // dd($user);
-        $user->username = request('username');
-        // $user->image = request()->file('image')->getClientOriginalName();
-        $user->address= request('address');
-        $user->gender = request('gender');
-        // $user->age = request('age');
-        $user->phone = request('phone');
+        $user->username = $data['username'];
+        $user->image = $data['image'] ?? $user->image;
+        $user->address = $data['address'];
+        $user->gender = $data['gender'];
+        $user->phone = $data['phone'];
         $user->save();
     }
 

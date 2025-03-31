@@ -50,30 +50,17 @@ class UserController extends Controller
 
     public function profile_update(UserEditRequest $request, $id)        
     {
-        try {
             $validatedData = $request->validated();
-            
-            // Debug line to check what we're receiving
-            Log::info('Validated data:', $validatedData);
-            
+    
             $updateData = [
                 'username' => $validatedData['username'],
-                'email' => $validatedData['email'],
                 'address' => $validatedData['address'],
                 'gender' => $validatedData['gender'],
                 'phone' => $validatedData['phone'],
             ];
-
-            
             $this->userService->update($id, $updateData);
 
-            return redirect()->route('user.profile')->with('success', 'Profile updated successfully');
-        } catch (\Exception $e) {
-            Log::error('Profile update error: ' . $e->getMessage());
-            return redirect()->back()
-                ->withInput()
-                ->with('error', 'Error updating profile: ' . $e->getMessage());
-        }
+        return redirect()->route('user.profile')->with('success', 'Profile updated successfully');
     }
 
     

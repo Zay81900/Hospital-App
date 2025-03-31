@@ -15,11 +15,7 @@
         <div class="col-md-8 mx-auto">
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->username }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" required>
+                <input type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->username }}" >
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>

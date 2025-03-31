@@ -73,7 +73,6 @@ class UserDao implements UserDaoInterface
         $user = User::findOrFail($id);
         // dd($user);
         $user->username = request('username');
-        $user->email= request('email');
         // $user->image = request()->file('image')->getClientOriginalName();
         $user->address= request('address');
         $user->gender = request('gender');

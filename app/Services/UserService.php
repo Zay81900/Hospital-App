@@ -56,8 +56,6 @@ class UserService implements UserServiceInterface
     public function update($id , array $data) : void
     {
         $this->userDao->update($id , $data);
-        $name = request()->file('image')->getClientOriginalName();
-        request()->file('image')->storeAs('public/images/user' , $name);
     }
 
      /**

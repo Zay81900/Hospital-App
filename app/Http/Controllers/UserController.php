@@ -57,7 +57,6 @@ class UserController extends Controller
                 'address' => $validatedData['address'],
                 'gender' => $validatedData['gender'],
                 'phone' => $validatedData['phone'],
-                'image' => $validatedData['image'],
             ];
             $this->userService->update($id, $updateData);
 

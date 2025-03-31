@@ -25,7 +25,7 @@ class UserEditRequest extends FormRequest
     {
         return [
             'username' => ['nullable', 'max:255'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp,svg', 'max:2048'],
+            // 'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp,svg', 'max:2048'],
             'address' => ['nullable', 'max:225'],
             'gender' => ['nullable', 'max:225'],
             // 'age' => ['required','max:225'],

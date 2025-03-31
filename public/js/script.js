@@ -32,3 +32,13 @@ function openProfileModal() {
         console.error("Modal element not found!");
     }
 }
+
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.querySelector('.doctor-image').src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}

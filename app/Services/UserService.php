@@ -38,8 +38,6 @@ class UserService implements UserServiceInterface
     public function store() : void
     {
         $this->userDao->store();
-        $name = request()->file('image')->getClientOriginalName();
-        request()->file('image')->storeAs('public/images/user/' , $name);
     }
 
     /**

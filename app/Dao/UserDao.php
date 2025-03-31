@@ -53,7 +53,7 @@ class UserDao implements UserDaoInterface
      * Update Workout
      * @return void
     */
-    public function update($id , array $data) : void
+    public function update($id, array $data): void
     {
         // dd($id);
         // $user = User::findOrFail($id);
@@ -71,12 +71,13 @@ class UserDao implements UserDaoInterface
         //     $user->save();
         // }
         $user = User::findOrFail($id);
+        // dd($user);
         $user->username = request('username');
         $user->email= request('email');
-        $user->image = request()->file('image')->getClientOriginalName();
+        // $user->image = request()->file('image')->getClientOriginalName();
         $user->address= request('address');
         $user->gender = request('gender');
-        $user->age = request('age');
+        // $user->age = request('age');
         $user->phone = request('phone');
         $user->save();
     }

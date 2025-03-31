@@ -9,6 +9,7 @@ use App\Models\Auth;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -50,17 +51,34 @@ class UserController extends Controller
 
     public function profile_update(UserEditRequest $request, $id)        
     {
+        try {
             $validatedData = $request->validated();
-    
             $updateData = [
                 'username' => $validatedData['username'],
                 'address' => $validatedData['address'],
                 'gender' => $validatedData['gender'],
                 'phone' => $validatedData['phone'],
             ];
+
+            if (isset($validatedData['image'])) {
+                $path = public_path('images/user');
+                if (!file_exists($path)) {
+                    mkdir($path, 0777, true);
+                }
+
+                $image = $validatedData['image'];
+                $imageName = $image->getClientOriginalName();
+                $image->move($path, $imageName);
+                $updateData['image'] = $imageName;
+            }
+
             $this->userService->update($id, $updateData);
 
-        return redirect()->route('user.profile')->with('success', 'Profile updated successfully');
+            return redirect()->route('user.profile')->with('success', 'Profile updated successfully');
+        } catch (\Exception $e) {
+            Log::error('Profile update error: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'There was an error updating your profile.');
+        }
     }
 
     

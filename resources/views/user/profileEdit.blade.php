@@ -40,10 +40,10 @@
                 <label for="address" class="form-label">Address</label>
                 <textarea class="form-control" id="address" name="address" rows="3">{{ Auth::user()->address }}</textarea>
             </div>
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="image" class="form-label">Profile Picture</label>
                 <input type="file" class="form-control" id="image" name="image" accept="image/*">
-            </div> --}}
+            </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ route('user.profile') }}" class="btn btn-secondary">Back</a>
                 <button type="submit" class="btn btn-primary">Save changes</button>

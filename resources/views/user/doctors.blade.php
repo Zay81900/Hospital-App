@@ -12,7 +12,7 @@
     <!-- Search and Filter Section with Enhanced UI -->
     <div class="row mb-5">
         <div class="col-md-8">
-            <form action="{{ route('doctors.list') }}" method="GET" class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden">
+            <form action="{{ route('doctors.list') }}" method="GET" class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden h-80">
                 <input type="text" name="search" class="searchBar form-control border-0 ps-4" placeholder="Search doctors by name or specialization..." value="{{ request('search') }}">
                 <button class="btn btn-primary px-4 rounded-end" type="submit">
                     <i class="fas fa-search"></i> Search
@@ -20,14 +20,16 @@
             </form>
         </div>
         <div class="col-md-4">
-            <form action="{{ route('doctors.list') }}" method="GET" id="filterForm">
-                <select name="specialization" class="form-select form-select-lg shadow-md border-2 rounded-pill pm-4" onchange="this.form.submit()">
-                    <option value="">All Specializations</option>
-                    <option value="Cardiologist" {{ request('specialization') === 'Cardiologist' ? 'selected' : '' }}>Cardiology</option>
-                    <option value="Neurologist" {{ request('specialization') === 'Neurologist' ? 'selected' : '' }}>Neurology</option>
-                    <option value="Pediatrics" {{ request('specialization') === 'Pediatrics' ? 'selected' : '' }}>Pediatrics</option>
-                    <option value="Orthopedic Surgeon" {{ request('specialization') === 'Orthopedic Surgeon' ? 'selected' : '' }}>Orthopedics</option>
-                </select>
+            <form action="{{ route('doctors.list') }}" method="GET" id="filterForm" class="h-50">
+                <div class="form-group h-50">
+                    <select name="specialization" class="form-control form-control-lg h-100" onchange="this.form.submit()">
+                        <option value="">All Specializations</option>
+                        <option value="Cardiologist" {{ request('specialization') === 'Cardiologist' ? 'selected' : '' }}>Cardiology</option>
+                        <option value="Neurologist" {{ request('specialization') === 'Neurologist' ? 'selected' : '' }}>Neurology</option>
+                        <option value="Pediatrics" {{ request('specialization') === 'Pediatrics' ? 'selected' : '' }}>Pediatrics</option>
+                        <option value="Orthopedic Surgeon" {{ request('specialization') === 'Orthopedic Surgeon' ? 'selected' : '' }}>Orthopedics</option>
+                    </select>
+                </div>
                 @if(request('search'))
                     <input type="hidden" name="search" value="{{ request('search') }}">
                 @endif
@@ -177,7 +179,7 @@
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             How do I book an appointment with a doctor?
                         </button>
                     </h2>
@@ -189,7 +191,7 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             What insurance plans do you accept?
                         </button>
                     </h2>
@@ -201,7 +203,7 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             Can I get a second opinion from another doctor?
                         </button>
                     </h2>
@@ -228,7 +230,7 @@
                                 <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
                                     <input name="EMAIL" placeholder="Your email address" class="common-input p-2" onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Your email address'" required="" type="email">
-                                    <button class="btn">Subscribe</button>
+                                    <button class="btn btn-primary">Subscribe</button>
                                 </form>
                             </div>
                         </div>

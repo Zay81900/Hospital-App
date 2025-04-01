@@ -81,10 +81,10 @@
 						<div class="col-lg-6 col-md-5 col-12">
 							<!-- Contact -->
 							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="{{ route('user.contact') }}">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
+								<li><a href="#" style="text-decoration: none;">About</a></li>
+								<li><a href="#" style="text-decoration: none;">Doctors</a></li>
+								<li><a href="{{ route('user.contact') }}" style="text-decoration: none;">Contact</a></li>
+								<li><a href="#" style="text-decoration: none;">FAQ</a></li>
 							</ul>
 							<!-- End Contact -->
 						</div>
@@ -92,21 +92,24 @@
 							<!-- Top Contact -->
 							<ul class="top-contact">
 								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com" style="text-decoration: none;">support@yourmail.com</a></li>
 								@if(Auth::check())
 									<li>
 										<form action="{{ route('auth.logoutUser') }}" method="POST" style="display: inline;">
 											@csrf
-											<a href="{{ route ('user.profile') }} " class="profile-link mr-2"><img src="images/user/user_default.png" alt="" style="width: 50px;"></a>
-											{{-- <button type="submit" class="btn btn-dark btn-lg">Logout</button> --}}
+											@if(Auth::user()->image)
+											<a href="{{ route ('user.profile') }} " class="profile-link mr-2"><img src="{{ asset("images/user/" . Auth::user()->image) }}" class="rounded-circle" alt="" style="width: 50px;"></a>
+											@else
+											<a href="{{ route ('user.profile') }} " class="profile-link mr-2"><img src="images/user/user_default.png" class="rounded-circle" alt="" style="width: 50px;"></a>
+											@endif
 										</form>
 										<form action="{{ route('auth.logoutUser') }}" method="POST" style="display: inline;">
 											@csrf
-											<button type="submit" class="btn btn-dark btn-lg">Logout</button>
+											<button type="submit" class="btn btn-dark btn-md">Logout</button>
 										</form>
 									</li>
 								@else		
-									<li><a href="{{route('auth.login')}}" class="login btn">Login</a></li>
+									<li><a href="{{route('auth.login')}}" class="login btn btn-primary">Login</a></li>
 								@endif
 							</ul>
 							<!-- End Top Contact -->
@@ -135,24 +138,33 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="{{ route('user.index') }}">Home <i class="icofont-rounded-down"></i></a>
+											<li class="{{ request()->routeIs('user.index') ? 'active' : '' }}">
+												<a href="{{ route('user.index') }}" style="text-decoration: none;">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="{{ route('user.index') }}"">Home Page 1</a></li>
+													<li><a href="{{ route('user.index') }}">Home Page 1</a></li>
 												</ul>
 											</li>
-											<li><a href="{{ route('user.doctors') }}">Doctors </a></li>
-											<li><a href="#">Services </a></li>
-											<li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
+											<li class="{{ request()->routeIs('user.doctors') ? 'active' : '' }}">
+												<a href="{{ route('user.doctors') }}" style="text-decoration: none;">Doctors</a>
+											</li>
+											<li class="{{ request()->routeIs('user.services') ? 'active' : '' }}">
+												<a href="#" style="text-decoration: none;">Services</a>
+											</li>
+											<li class="{{ request()->routeIs('user.pages') ? 'active' : '' }}">
+												<a href="#" style="text-decoration: none;">Pages <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="404.html">404 Error</a></li>
-												</ul>
-												</li>
-											<li><a href="">Blogs <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="{{ route('user.blog_detail') }}">Blog Details</a></li>
+													<li><a href="404.html" style="text-decoration: none;">404 Error</a></li>
 												</ul>
 											</li>
-											<li><a href="{{ route('user.contact') }}">Contact Us</a></li>
+											<li class="{{ request()->routeIs('user.blog') ? 'active' : '' }}">
+												<a href="" style="text-decoration: none;">Blogs <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><a href="{{ route('user.blog_detail') }}" style="text-decoration: none;">Blog Details</a></li>
+												</ul>
+											</li>
+											<li class="{{ request()->routeIs('user.contact') ? 'active' : '' }}">
+												<a href="{{ route('user.contact') }}" style="text-decoration: none;">Contact Us</a>
+											</li>
 										</ul>
 									</nav>
 								</div>
@@ -160,7 +172,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a href="appointment.html" class="btn">Book Appointment</a>
+									<a href="appointment.html" class="btn btn-primary">Book Appointment</a>
 								</div>
 							</div>
 						</div>
@@ -213,20 +225,20 @@
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
 										</ul>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
+											<li><a href="#" style="text-decoration: none;"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
 										</ul>
 									</div>
 								</div>

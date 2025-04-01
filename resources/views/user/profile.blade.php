@@ -22,7 +22,7 @@
                     <p class="text-muted mb-1">Patient</p>
                     <p class="text-muted mb-4">{{ Auth::user()->email }}</p>
                     <div class="d-flex justify-content-center mb-2">
-                        <a href="{{ url('/user/profile/'.Auth::user()->id.'/edit') }}" class="btn btn-primary btn-sm">Edit Profile</a>
+                        <a href="{{ url('/user/profile/'.Auth::user()->id.'/edit') }}" class="btn btn-primary btn-md">Edit Profile</a>
                         {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateProfileModal" onclick="openProfileModal()">
                             Edit Profile
                         </button> --}}

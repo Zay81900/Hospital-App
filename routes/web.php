@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -27,3 +28,16 @@ Route::post('/logout', [AuthController::class, 'LogoutUser'])->name('auth.logout
 
 Route::get('/doctors', [DoctorController::class,'index'])->name('user.doctors');
 Route::get('/doctorslist', [DoctorController::class,'listDoctors'])->name('doctors.list');
+
+
+
+//  Admin
+// Route::middleware(['auth'])->group(function () {
+Route::get('/admin/index', [AdminController::class,'index'])->name('admin.index');
+// });
+
+Route::get('/admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
+
+// Route::group(['middleware' => ['admin']], function () {
+//     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+// });

@@ -31,13 +31,8 @@ Route::get('/doctorslist', [DoctorController::class,'listDoctors'])->name('docto
 
 
 
-//  Admin
-// Route::middleware(['auth'])->group(function () {
-Route::get('/admin/index', [AdminController::class,'index'])->name('admin.index');
-// });
-
-Route::get('/admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
-
-// Route::group(['middleware' => ['admin']], function () {
-//     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-// });
+// //  Admin
+Route::prefix('/admin')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    // Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard.index');
+});

@@ -68,7 +68,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $token = $user->createToken('token')->plainTextToken;
-            if ($user->role == 1) {
+            if ($user->role == 1) { 
                 return redirect()->route('admin.index')
                     ->with('message', 'You Have Successfully logined...')
                     ->with('token', $token);

@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
         return view('admin.pages.index');
     }
+
+    public function lists()
+    {
+        return view('admin.pages.tables');
+    }
 }

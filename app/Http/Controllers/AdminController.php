@@ -11,8 +11,13 @@ class AdminController extends Controller
         return view('admin.pages.index');
     }
 
-    public function lists()
+    public function UserList()
     {
-        return view('admin.pages.tables');
+        return view('admin.pages.userlist');
+    }
+
+    public function DoctorList()
+    {
+        return view('admin.pages.doctorlist');
     }
 }

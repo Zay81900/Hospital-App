@@ -100,17 +100,7 @@
               <span class="nav-link-text ms-1">Virtual Reality</span>
             </a>
           </li>
-<<<<<<< HEAD
-          {{-- <li class="nav-item">
-            <a class="nav-link text-dark" href="../admin/pages/rtl.html">
-=======
-          <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('admin.rtl') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/rtl.html">
->>>>>>> 6214a84ad82bb7fbcdc7adc1bb3c4116bbe73235
-              <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
-              <span class="nav-link-text ms-1">RTL</span>
-            </a>
-          </li> --}}
+          
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('admin.notifications') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/notifications.html">
               <i class="material-symbols-rounded opacity-5">notifications</i>

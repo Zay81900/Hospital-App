@@ -10,4 +10,8 @@ class AdminController extends Controller
     {
         return view('admin.pages.index');
     }
+  
+   
+
+    
 }

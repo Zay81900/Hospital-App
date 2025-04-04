@@ -72,12 +72,12 @@
               <span class="nav-link-text ms-1">Virtual Reality</span>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link text-dark" href="../admin/pages/rtl.html">
               <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
               <span class="nav-link-text ms-1">RTL</span>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link text-dark" href="../admin/pages/notifications.html">
               <i class="material-symbols-rounded opacity-5">notifications</i>

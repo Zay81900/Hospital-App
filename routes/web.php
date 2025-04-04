@@ -34,4 +34,7 @@ Route::get('/doctorslist', [DoctorController::class,'listDoctors'])->name('docto
 // //  Admin
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/lists', [AdminController::class, 'lists'])->name('admin.lists');
+    Route::get('/userlist', [AdminController::class, 'UserList'])->name('admin.users_list');
+    Route::get('/doctorlist', [AdminController::class, 'DoctorList'])->name('admin.doctors_list');
 });

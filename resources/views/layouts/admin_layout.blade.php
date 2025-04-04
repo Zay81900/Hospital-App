@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../admin/assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+  <style>
+    .nav-link[data-bs-toggle="collapse"]::after {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -49,37 +54,65 @@
       <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active bg-gradient-dark text-white" href="../admin/pages/dashboard.html">
+            <a class="nav-link {{ request()->routeIs('admin.index') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{route('admin.index')}}">
               <i class="material-symbols-rounded opacity-5">dashboard</i>
               <span class="nav-link-text ms-1">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../admin/pages/tables.html">
-              <i class="material-symbols-rounded opacity-5">table_view</i>
-              <span class="nav-link-text ms-1">Tables</span>
+            <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-white' : '' }}" data-bs-toggle="collapse" href="#tablesCollapse" role="button" aria-expanded="{{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'true' : 'false' }}" aria-controls="tablesCollapse">
+              <div class="d-flex align-items-center">
+                <i class="material-symbols-rounded opacity-5">table_view</i>
+                <span class="nav-link-text ms-1">Tables</span>
+                <i class="material-symbols-rounded opacity-5 ms-auto" style="transform: {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'rotate(180deg)' : 'rotate(0deg)' }}">expand_more</i>
+              </div>
             </a>
+            <div class="collapse {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'show' : '' }}" id="tablesCollapse">
+              <ul class="nav flex-column ms-4 ps-3">
+                <li class="nav-item">
+                  <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') ? 'active bg-gradient-dark text-white' : '' }}" href="{{route('admin.users_list')}}">
+                    <div class="d-flex align-items-center">
+                      <i class="material-symbols-rounded opacity-5 me-2">people</i>
+                      <span class="sidenav-normal">User List</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark {{ request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-white' : '' }}" href="{{route('admin.doctors_list')}}">
+                    <div class="d-flex align-items-center">
+                      <i class="material-symbols-rounded opacity-5 me-2">medical_services</i>
+                      <span class="sidenav-normal">Doctor List</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../admin/pages/billing.html">
+            <a class="nav-link {{ request()->routeIs('admin.billing') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/billing.html">
               <i class="material-symbols-rounded opacity-5">receipt_long</i>
               <span class="nav-link-text ms-1">Billing</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../admin/pages/virtual-reality.html">
+            <a class="nav-link {{ request()->routeIs('admin.virtual-reality') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/virtual-reality.html">
               <i class="material-symbols-rounded opacity-5">view_in_ar</i>
               <span class="nav-link-text ms-1">Virtual Reality</span>
             </a>
           </li>
+<<<<<<< HEAD
           {{-- <li class="nav-item">
             <a class="nav-link text-dark" href="../admin/pages/rtl.html">
+=======
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.rtl') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/rtl.html">
+>>>>>>> 6214a84ad82bb7fbcdc7adc1bb3c4116bbe73235
               <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
               <span class="nav-link-text ms-1">RTL</span>
             </a>
           </li> --}}
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../admin/pages/notifications.html">
+            <a class="nav-link {{ request()->routeIs('admin.notifications') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../admin/pages/notifications.html">
               <i class="material-symbols-rounded opacity-5">notifications</i>
               <span class="nav-link-text ms-1">Notifications</span>
             </a>
@@ -88,19 +121,19 @@
             <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../pages/profile.html">
+            <a class="nav-link {{ request()->routeIs('admin.profile') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../pages/profile.html">
               <i class="material-symbols-rounded opacity-5">person</i>
               <span class="nav-link-text ms-1">Profile</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../pages/sign-in.html">
+            <a class="nav-link {{ request()->routeIs('admin.sign-in') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../pages/sign-in.html">
               <i class="material-symbols-rounded opacity-5">login</i>
               <span class="nav-link-text ms-1">Sign In</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="../pages/sign-up.html">
+            <a class="nav-link {{ request()->routeIs('admin.sign-up') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="../pages/sign-up.html">
               <i class="material-symbols-rounded opacity-5">assignment</i>
               <span class="nav-link-text ms-1">Sign Up</span>
             </a>
@@ -310,242 +343,32 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="../admin/assets/js/core/popper.min.js"></script>
+  <script src="../admin/assets/js/core/bootstrap.min.js"></script>
+  <script src="../admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../admin/assets/js/plugins/chartjs.min.js"></script>
+  
   <script>
-    var ctx = document.getElementById("chart-bars").getContext("2d");
+    // Initialize Bootstrap components
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize all collapse elements
+      var collapseElements = [].slice.call(document.querySelectorAll('[data-bs-toggle="collapse"]'))
+      collapseElements.map(function(collapseEl) {
+        return new bootstrap.Collapse(collapseEl, {
+          toggle: false
+        })
+      });
 
-    new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: ["M", "T", "W", "T", "F", "S", "S"],
-        datasets: [{
-          label: "Views",
-          tension: 0.4,
-          borderWidth: 0,
-          borderRadius: 4,
-          borderSkipped: false,
-          backgroundColor: "#43A047",
-          data: [50, 45, 22, 28, 50, 60, 76],
-          barThickness: 'flex'
-        }, ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
+      // Add click event to rotate arrow icon
+      document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(element) {
+        element.addEventListener('click', function() {
+          const arrow = this.querySelector('.material-symbols-rounded.ms-auto');
+          if (arrow) {
+            arrow.style.transform = this.getAttribute('aria-expanded') === 'true' ? 'rotate(180deg)' : 'rotate(0deg)';
           }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [5, 5],
-              color: '#e5e5e5'
-            },
-            ticks: {
-              suggestedMin: 0,
-              suggestedMax: 500,
-              beginAtZero: true,
-              padding: 10,
-              font: {
-                size: 14,
-                lineHeight: 2
-              },
-              color: "#737373"
-            },
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              color: '#737373',
-              padding: 10,
-              font: {
-                size: 14,
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
-    });
-
-
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-    new Chart(ctx2, {
-      type: "line",
-      data: {
-        labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
-        datasets: [{
-          label: "Sales",
-          tension: 0,
-          borderWidth: 2,
-          pointRadius: 3,
-          pointBackgroundColor: "#43A047",
-          pointBorderColor: "transparent",
-          borderColor: "#43A047",
-          backgroundColor: "transparent",
-          fill: true,
-          data: [120, 230, 130, 440, 250, 360, 270, 180, 90, 300, 310, 220],
-          maxBarThickness: 6
-
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            callbacks: {
-              title: function(context) {
-                const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                return fullMonths[context[0].dataIndex];
-              }
-            }
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [4, 4],
-              color: '#e5e5e5'
-            },
-            ticks: {
-              display: true,
-              color: '#737373',
-              padding: 10,
-              font: {
-                size: 12,
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              color: '#737373',
-              padding: 10,
-              font: {
-                size: 12,
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
-    });
-
-    var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-    new Chart(ctx3, {
-      type: "line",
-      data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-          label: "Tasks",
-          tension: 0,
-          borderWidth: 2,
-          pointRadius: 3,
-          pointBackgroundColor: "#43A047",
-          pointBorderColor: "transparent",
-          borderColor: "#43A047",
-          backgroundColor: "transparent",
-          fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-          maxBarThickness: 6
-
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [4, 4],
-              color: '#e5e5e5'
-            },
-            ticks: {
-              display: true,
-              padding: 10,
-              color: '#737373',
-              font: {
-                size: 14,
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [4, 4]
-            },
-            ticks: {
-              display: true,
-              color: '#737373',
-              padding: 10,
-              font: {
-                size: 14,
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
+        });
+      });
     });
   </script>
   <script>

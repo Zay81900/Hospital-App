@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../admin/assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     .nav-link[data-bs-toggle="collapse"]::after {
       display: none !important;
@@ -338,6 +343,8 @@
   <script src="../admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../admin/assets/js/plugins/chartjs.min.js"></script>
+  		<!-- Bootstrap JS (must be included before your script.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
     // Initialize Bootstrap components

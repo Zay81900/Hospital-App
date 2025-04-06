@@ -43,6 +43,23 @@
     .nav-link[data-bs-toggle="collapse"]::after {
       display: none !important;
     }
+    .availability-cell {
+      white-space: pre-line;
+      line-height: 1.5;
+    }
+    .availability-day {
+      font-weight: 500;
+      color: #344767;
+    }
+    .availability-time {
+      color: #67748e;
+    }
+    .availability-unavailable {
+      color: #e91e63;
+    }
+    .availability-closed {
+      color: #e91e63;
+    }
   </style>
 </head>
 
@@ -65,7 +82,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-white' : '' }}" data-bs-toggle="collapse" href="#tablesCollapse" role="button" aria-expanded="{{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'true' : 'false' }}" aria-controls="tablesCollapse">
+            <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-dark' : '' }}" data-bs-toggle="collapse" href="#tablesCollapse" role="button" aria-expanded="{{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'true' : 'false' }}" aria-controls="tablesCollapse">
               <div class="d-flex align-items-center">
                 <i class="material-symbols-rounded opacity-5">table_view</i>
                 <span class="nav-link-text ms-1">Tables</span>
@@ -75,7 +92,7 @@
             <div class="collapse {{ request()->routeIs('admin.users_list') || request()->routeIs('admin.doctors_list') ? 'show' : '' }}" id="tablesCollapse">
               <ul class="nav flex-column ms-4 ps-3">
                 <li class="nav-item">
-                  <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') ? 'active bg-gradient-dark text-white' : '' }}" href="{{route('admin.users_list')}}">
+                  <a class="nav-link text-dark {{ request()->routeIs('admin.users_list') ? 'active bg-gradient-dark text-dark' : '' }}" href="{{route('admin.users_list')}}">
                     <div class="d-flex align-items-center">
                       <i class="material-symbols-rounded opacity-5 me-2">people</i>
                       <span class="sidenav-normal">User List</span>
@@ -83,7 +100,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-dark {{ request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-white' : '' }}" href="{{route('admin.doctors_list')}}">
+                  <a class="nav-link text-dark {{ request()->routeIs('admin.doctors_list') ? 'active bg-gradient-dark text-dark' : '' }}" href="{{route('admin.doctors_list')}}">
                     <div class="d-flex align-items-center">
                       <i class="material-symbols-rounded opacity-5 me-2">medical_services</i>
                       <span class="sidenav-normal">Doctor List</span>

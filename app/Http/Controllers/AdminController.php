@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -20,6 +21,7 @@ class AdminController extends Controller
 
     public function DoctorList()
     {
-        return view('admin.pages.doctorlist');
+        $doctors = Doctor::all(); // or Doctor::paginate(10) for pagination
+        return view('admin.pages.doctorlist', compact('doctors'));
     }
 }

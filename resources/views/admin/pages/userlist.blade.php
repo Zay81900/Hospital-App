@@ -14,21 +14,21 @@
             <table class="table table-striped table-hover tblborder table-bordered align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 50px; width: 50px;">Sr No.</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 250px; width: 250px;">Image</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 180px; width: 180px;">Username</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ps-2" style="min-width: 170px; width: 170px;">Email</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 220px; width: 220px;">Address</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 90px; width: 90px;">Gender</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 80px; width: 80px;">Age</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ps-2" style="min-width: 150px; width: 150px;">Phone Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 80px; width: 80px;">Blood Group</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 220px; width: 220px;">Disease Description</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 220px; width: 220px;">Status</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder" style="min-width: 130px; width: 130px;">Action</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 50px; width: 50px;">Sr No.</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 250px; width: 250px;">Image</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 180px; width: 180px;">Username</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder ps-2" style="min-width: 170px; width: 170px;">Email</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Address</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 90px; width: 90px;">Gender</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 80px; width: 80px;">Age</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder ps-2" style="min-width: 150px; width: 150px;">Phone Number</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 80px; width: 80px;">Blood Group</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Disease Description</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Status</th>
+                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 130px; width: 130px;">Action</th>
                 </tr>
               </thead>
-              <tbody class="">
+              <tbody class="text-s text-secondary font-weight-bolder">
                 @foreach($users as $key => $user)
                 <tr>
                   <td style="text-align: right; border: 1px solid #dee2e6;">{{ $key + 1 }}</td>
@@ -55,8 +55,11 @@
                     <span class="badge badge-sm bg-gradient-{{ $user->status == 'online' ? 'success' : 'danger' }}">{{ ucfirst($user->status) }}</span>
                   </td>
                   <td class="text-center" style="border: 1px solid #dee2e6;">
-                    <a href="" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                      <i class="fa fa-edit fa-2x"></i>
+                    <a href="" class="text-success font-weight-bold text-xs pr-2" data-toggle="tooltip" data-original-title="Edit user">
+                      <i class="fa fa-edit fa-2x" style="margin-right: 7px;"></i>
+                    </a>
+                    <a href="" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                      <i class="fa fa-trash fa-2x"></i>
                     </a>
                     {{-- {{ route('admin.users.edit', $user->id) }} --}}
                   </td>

@@ -14,6 +14,8 @@ Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');
 Route::get('/blog-detail', [UserController::class, 'blog_detail'])->name('user.blog_detail');
 Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+Route::get('/appointment', [UserController::class, 'appointment'])->name('user.appointment');
+Route::post('/appointment/book', [UserController::class, 'appointmentStore'])->name('user.appointment.store');
 
 Route::get('/user/profile/{id}/edit', [UserController::class, 'edit'])->name('user.profile_edit');
 Route::put('/user/profile/{id}', [UserController::class, 'profile_update'])->name('user.profile_update');

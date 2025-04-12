@@ -62,6 +62,7 @@ return new class extends Migration
             $table->integer('phone')->nullable();
             $table->string('blood_type')->nullable();
             $table->string('disease_description')->nullable();
+            $table->string('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -37,11 +37,10 @@ class AuthController extends Controller
     {
         $validatedData = $request->validated();
         $this->authService->register([
-            'name' => $validatedData['username'],
+            'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => $validatedData['password'],
-            'role' => 2, // Default role for regular users
-            // 'image' => $validatedData['image'],
+            'role' => 2, 
             'address' => $validatedData['address'],
             'gender' => $validatedData['gender'],
             'age' => $validatedData['age'],
@@ -49,9 +48,6 @@ class AuthController extends Controller
             'disease_description' => $validatedData['disease_description'],
             'phone' => $validatedData['phone'],
         ]);
-
-        // $imageName = time() . '.' . $validatedData['image']->extension();
-        // $validatedData['image']->move(public_path('images/user/'), $imageName);
 
         return redirect()->route('auth.login')
             ->with('message', 'Your have Registered Successfully...');

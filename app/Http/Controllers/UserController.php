@@ -55,12 +55,6 @@ class UserController extends Controller
         return view('user.profileEdit', ['user'=> $user]);
     }
 
-    public function appointmentStore(AppointmentCreateRequest $request) {
-        $doctors = Doctor::all();
-        $user = $this->userService->store($doctors);
-
-    }
-
 
     public function profile_update(UserEditRequest $request, $id)        
     {

@@ -14,12 +14,10 @@ class AppointmentCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string|max:255',
-            'email' => ['required', 'max:255', 'email', 'unique:users,email', [ 'email.unique' => 'This email address is already in used.']],
-            'doctor' => 'required|string',
-            'phone' => 'required|string',
+            'doctor_id' => 'required|string|',
+            'patient_id' => 'nullable|string|',
             'appointment_date' => 'required|string',
-            'appointment_time' => 'nullable|string',
+            'appointment_time' => 'required|string',
             'notes' => 'nullable|string'
         ];
     }

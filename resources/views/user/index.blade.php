@@ -1,6 +1,14 @@
 @extends('layouts.user_layout')
 @section('content')
 
+<div class="container">
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+</div>
+
 <!-- Slider Area -->
 <section class="slider">
     <div class="hero-slider">

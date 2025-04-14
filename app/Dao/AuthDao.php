@@ -14,8 +14,7 @@ class AuthDao implements AuthDaoInterface
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'role' => $data['role'],    
+            'password' => Hash::make($data['password']),   
             // 'image' => $data['image'],
             'address' => $data['address'],
             'gender' => $data['gender'],    

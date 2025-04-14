@@ -29,7 +29,7 @@
                         <div class="space-y-4">
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" name="userId" id="userId" value="{{ Auth::user()-> id }}" hidden>
+                                <input type="text" name="patient_id" id="patient_id" value="{{ Auth::user()-> id }}" hidden>
                                 <input type="text" name="name" id="name" required
                                     class="form-control"
                                     value="{{ old('name') }}">
@@ -70,8 +70,8 @@
                             </div> --}}
                             
                             <div class="form-group">
-                                <label for="doctor" class="form-label">Doctor</label>
-                                <select name="doctor" id="doctor" required
+                                <label for="doctor_id" class="form-label">Doctor</label>
+                                <select name="doctor_id" id="doctor_id" required
                                     class="form-control">
                                     <option value="">Select Doctor</option>
                                     @foreach ($doctors as $doctor)

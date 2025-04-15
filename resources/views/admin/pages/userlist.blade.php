@@ -48,8 +48,8 @@
                   <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->address }}</td>
                   <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->gender }}</td>
                   <td style="text-align: right; border: 1px solid #dee2e6;">{{ $user->age }}</td>
-                  <td style="text-align: right; border: 1px solid #dee2e6;">{{ $user->phone_number }}</td>
-                  <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->blood_group }}</td>
+                  <td style="text-align: right; border: 1px solid #dee2e6;">{{ $user->phone }}</td>
+                  <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->blood_type }}</td>
                   <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->disease_description }}</td>
                   <td class="align-middle text-center text-sm">
                     <span class="badge badge-sm bg-gradient-{{ $user->status == 'online' ? 'success' : 'danger' }}">{{ ucfirst($user->status) }}</span>

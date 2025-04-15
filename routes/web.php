@@ -40,4 +40,5 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/lists', [AdminController::class, 'lists'])->name('admin.lists');
     Route::get('/userlist', [AdminController::class, 'UserList'])->name('admin.users_list');
     Route::get('/doctorlist', [AdminController::class, 'DoctorList'])->name('admin.doctors_list');
+    Route::get('/appointment', [AdminController::class, 'Appointment'])->name('admin.appointment');
 });

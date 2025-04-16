@@ -270,6 +270,8 @@ namespace App\Models {
      * @property mixed $patient_id
      * @property mixed $doctor_id
      * @property int $id
+     * @property-read \App\Models\User $patient
+     * @property-read \App\Models\Doctor $doctor
      * @method static \Illuminate\Database\Eloquent\Builder<Appointment>|Appointment whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Appointment>|Appointment whereDoctorId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Appointment>|Appointment wherePatientId($value)
@@ -804,6 +806,10 @@ namespace App\Models {
      * @property string $email
      * @property string $doctor_name
      * @property int $id
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Appointment> $appointments
+     * @property-read int|null $appointments_count
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $patients
+     * @property-read int|null $patients_count
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereDoctorName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereEmail($value)
@@ -1088,6 +1094,10 @@ namespace App\Models {
      * @property string $email
      * @property string|null $username
      * @property int $id
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Appointment> $appointments
+     * @property-read int|null $appointments_count
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Doctor> $doctors
+     * @property-read int|null $doctors_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
      * @property-read int|null $tokens_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Notifications\DatabaseNotification> $notifications

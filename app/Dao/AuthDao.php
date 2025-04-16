@@ -21,6 +21,7 @@ class AuthDao implements AuthDaoInterface
             'age' => $data['age'],
             'phone' => $data['phone'],
             'disease_description'=> $data['disease_description'],
+            'role' => 2, // Add default role for regular users
         ]);
 
         return $user;

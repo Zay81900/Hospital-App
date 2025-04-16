@@ -42,3 +42,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/doctorlist', [AdminController::class, 'DoctorList'])->name('admin.doctors_list');
     Route::get('/appointment', [AdminController::class, 'Appointment'])->name('admin.appointment');
 });
+
+Route::get('/admin/appointments/{appointment}/show', [AppointmentController::class, 'show'])->name('appointments.show');
+Route::post('/admin/appointments/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])
+    ->name('appointments.updateStatus');

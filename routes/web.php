@@ -46,3 +46,15 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
 Route::get('/admin/appointments/{appointment}/show', [AppointmentController::class, 'show'])->name('appointments.show');
 Route::post('/admin/appointments/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])
     ->name('appointments.updateStatus');
+
+Route::get('/test-email', function() {
+    try {
+        \Illuminate\Support\Facades\Mail::raw('Test email', function($message) {
+            $message->to('test@example.com')
+                   ->subject('Test Email');
+        });
+        return 'Email sent successfully';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});

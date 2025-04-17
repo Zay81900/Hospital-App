@@ -17,7 +17,7 @@ interface AppointmentDaoInterface
      * Store User
      * @return void
     */
-    public function store() : void;
+    public function store(array $data) : object;
 
     /**
      * Return Specific User

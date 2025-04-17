@@ -30,13 +30,13 @@
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name</label>
                                 <input type="text" name="patient_id" id="patient_id" value="{{ Auth::user()-> id }}" hidden>
-                                <input type="text" name="name" id="name" required
+                                {{-- <input type="text" name="name" id="name" required
                                     class="form-control"
                                     value="{{ old('name') }}">
-                                <div id="nameError" class="form-error hidden"></div>
+                                <div id="nameError" class="form-error hidden"></div> --}}
                             </div>
                             
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="email" class="form-label">Email Address</label>
                                 <input type="email" name="email" id="email" required
                                     class="form-control"
@@ -50,7 +50,7 @@
                                     class="form-control"
                                     value="{{ old('phone') }}">
                                 <div id="phoneError" class="form-error hidden"></div>
-                            </div>
+                            </div> --}}
                         </div>
                         
                         <!-- Appointment Details -->

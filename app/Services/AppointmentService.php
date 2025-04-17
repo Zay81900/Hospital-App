@@ -32,12 +32,17 @@ class AppointmentService implements AppointmentServiceInterface
     }
 
     /**
-     * Store User
-     * @return void
-    */
-    public function store() : void
+     * Store Appointment
+     * @param array $data
+     * @return object
+     */
+    public function store(array $data) : object 
     {
-        $this->appointmentDao->store();
+        $appointment = $this->appointmentDao->store($data);
+        if (!$appointment) {
+            throw new \Exception('Failed to create appointment');
+        }
+        return $appointment;
     }
 
     /**

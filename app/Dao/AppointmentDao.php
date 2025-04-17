@@ -19,17 +19,23 @@ class AppointmentDao implements AppointmentDaoInterface
     
     /**
      * Store Appointment
-     * @return void
+     * @param array $data
+     * @return object
     */
-    public function store() : void
+    public function store(array $data) : object
     {
-        $appointment = New Appointment();
-        $appointment->doctor_id = request('doctor_id');
-        $appointment->patient_id = request('patient_id');
-        $appointment->appointment_date = request('appointment_date');
-        $appointment->appointment_time = request('appointment_time');
-        $appointment->notes = request('notes');
-        $appointment->save();
+        $appointment = new Appointment();
+        $appointment->doctor_id = $data['doctor_id'];
+        $appointment->patient_id = $data['patient_id'];
+        $appointment->appointment_date = $data['appointment_date'];
+        $appointment->appointment_time = $data['appointment_time'];
+        $appointment->notes = $data['notes'] ?? null;
+        
+        if (!$appointment->save()) {
+            throw new \Exception('Failed to save appointment');
+        }
+        
+        return $appointment;
     }
 
     /**

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Doctor extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'doctor_name',
         'specialization',
@@ -13,7 +16,9 @@ class Doctor extends Model
         'experience',
         'profile_image',
         'bio',
-        'status'
+        'status',
+        'email',
+        'phone'
     ];
 
     /**
@@ -34,5 +39,15 @@ class Doctor extends Model
     public function patients()
     {
         return $this->belongsToMany(User::class, 'appointments');
+    }
+
+    /**
+     * Get the email address for mail notifications.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail()
+    {
+        return $this->email;
     }
 }

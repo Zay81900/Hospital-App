@@ -14,10 +14,11 @@ interface AppointmentServiceInterface
     public function get() : object;
 
     /**
-     * Store User
-     * @return void
+     * Store Appointment
+     * @param array $data
+     * @return object
     */
-    public function store() : void;
+    public function store(array $data) : object;
 
     /**
      * Return Specific User

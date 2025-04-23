@@ -32,11 +32,6 @@ class UserController extends Controller
         return view('user.index');
     }
 
-    public function appointment() {
-        $doctors = Doctor::all();
-        return view('user.appointment', ['doctors'=> $doctors]);
-    }
-
     public function contact() {
         return view('user.contact');
     }

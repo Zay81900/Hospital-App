@@ -2,23 +2,37 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Doctor extends Model
+class Doctor extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
+
+    protected $guard = 'doctor';
 
     protected $fillable = [
         'doctor_name',
-        'specialization',
-        'qualification',
-        'experience',
-        'profile_image',
-        'bio',
-        'status',
         'email',
-        'phone'
+        'password',
+        'phone',
+        'specialization',
+        'experience',
+        'qualification',
+        'bio',
+        'profile_image',
+        'availability',
+        'status'
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'availability' => 'array',
     ];
 
     /**

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
@@ -35,5 +37,48 @@ class DoctorController extends Controller
         return view('user.doctors', compact('doctors'));  
     }
 
-    
+    public function dashboard()
+    {
+        $doctor = Auth::guard('doctor')->user();
+        $appointments = Appointment::where('doctor_id', $doctor->id)
+                                 ->orderBy('created_at', 'desc')
+                                 ->take(5)
+                                 ->get();
+        
+        $stats = [
+            'total_appointments' => Appointment::where('doctor_id', $doctor->id)->count(),
+            'pending_appointments' => Appointment::where('doctor_id', $doctor->id)
+                                              ->where('status', 'pending')
+                                              ->count(),
+            'completed_appointments' => Appointment::where('doctor_id', $doctor->id)
+                                                ->where('status', 'completed')
+                                                ->count()
+        ];
+
+        return view('doctor.dashboard', compact('doctor', 'appointments', 'stats'));
+    }
+
+    public function appointments()
+    {
+        $doctor = Auth::guard('doctor')->user();
+        $appointments = Appointment::where('doctor_id', $doctor->id)
+                                 ->orderBy('appointment_date', 'desc')
+                                 ->paginate(10);
+        
+        return view('doctor.appointments', compact('appointments'));
+    }
+
+    public function patients()
+    {
+        $doctor = Auth::guard('doctor')->user();
+        $patients = $doctor->patients()->distinct()->paginate(10);
+        
+        return view('doctor.patients', compact('patients'));
+    }
+
+    public function profile()
+    {
+        $doctor = Auth::guard('doctor')->user();
+        return view('doctor.profile', compact('doctor'));
+    }
 }

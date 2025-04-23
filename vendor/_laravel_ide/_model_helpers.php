@@ -810,6 +810,8 @@ namespace App\Models {
      * @property-read int|null $appointments_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $patients
      * @property-read int|null $patients_count
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+     * @property-read int|null $notifications_count
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereDoctorName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Doctor>|Doctor whereEmail($value)

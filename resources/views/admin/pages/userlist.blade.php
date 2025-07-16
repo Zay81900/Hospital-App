@@ -35,10 +35,10 @@
                   <td class="text-center" style="border: 1px solid #dee2e6;">
                     <div class="d-flex justify-content-center px-2 py-1">
                       <div>
-                        @if($user->image)
+                        @if($user->image != null)
                           <img src="{{ asset("images/user/" . $user->image) }}" class="rounded-circle doctor-image" style="width: 60px; height: 60px; align-items: center;" name="image" alt="{{ $user->username }}">
                         @else
-                            <img src="images/user/user_default.png" name="image" class="rounded-circle doctor-image" style="width: 60px; height: 60px; align-items: center;" alt="User">
+                            <img src="{{ asset('images/user/user_default.png') }}" name="image" class="rounded-circle doctor-image" style="width: 60px; height: 60px; align-items: center;" alt="User">
                         @endif                      
                       </div>
                     </div>

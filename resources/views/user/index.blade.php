@@ -1,6 +1,14 @@
 @extends('layouts.user_layout')
 @section('content')
 
+<div class="container">
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+</div>
+
 <!-- Slider Area -->
 <section class="slider">
     <div class="hero-slider">
@@ -756,7 +764,7 @@
                     <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
                         <input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Your email address'" required="" type="email">
-                        <button class="btn">Subscribe</button>
+                        <button class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
                 <!-- End Newsletter Form -->

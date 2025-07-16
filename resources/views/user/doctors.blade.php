@@ -3,31 +3,33 @@
 @section('content')
 
 <div class="container py-5">
-    <!-- Page Header -->
-    <div class="text-center mb-5">
+    <!-- Page Header with Animation -->
+    <div class="text-center mb-5 animate__animated animate__fadeIn">
         <h1 class="display-4 fw-bold text-primary">Our Medical Experts</h1>
         <p class="lead text-muted">Find the right specialist for your healthcare needs</p>
     </div>
 
-    <!-- Search and Filter Section -->
+    <!-- Search and Filter Section with Enhanced UI -->
     <div class="row mb-5">
         <div class="col-md-8">
-            <form action="{{ route('doctors.list') }}" method="GET" class="input-group input-group-lg shadow-sm">
-                <input type="text" name="search" class="searchBar form-control border-0" placeholder="Search Here..." value="{{ request('search') }}">
-                <button class="btn btn-primary px-4" type="submit">
+            <form action="{{ route('doctors.list') }}" method="GET" class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden h-80">
+                <input type="text" name="search" class="searchBar form-control border-0 ps-4" placeholder="Search doctors by name or specialization..." value="{{ request('search') }}">
+                <button class="btn btn-primary px-4 rounded-end" type="submit">
                     <i class="fas fa-search"></i> Search
                 </button>
             </form>
         </div>
         <div class="col-md-4">
-            <form action="{{ route('doctors.list') }}" method="GET" id="filterForm">
-                <select name="specialization" class="form-select form-select-lg shadow-sm border-0" onchange="this.form.submit()">
-                    <option value="">All Specializations</option>
-                    <option value="Cardiologist" {{ request('specialization') === 'Cardiologist' ? 'selected' : '' }}>Cardiology</option>
-                    <option value="Neurologist" {{ request('specialization') === 'Neurologist' ? 'selected' : '' }}>Neurology</option>
-                    <option value="Pediatrics" {{ request('specialization') === 'Pediatrics' ? 'selected' : '' }}>Pediatrics</option>
-                    <option value="Orthopedic Surgeon" {{ request('specialization') === 'Orthopedic Surgeon' ? 'selected' : '' }}>Orthopedics</option>
-                </select>
+            <form action="{{ route('doctors.list') }}" method="GET" id="filterForm" class="h-50">
+                <div class="form-group h-50">
+                    <select name="specialization" class="form-control form-control-lg h-100" onchange="this.form.submit()">
+                        <option value="">All Specializations</option>
+                        <option value="Cardiologist" {{ request('specialization') === 'Cardiologist' ? 'selected' : '' }}>Cardiology</option>
+                        <option value="Neurologist" {{ request('specialization') === 'Neurologist' ? 'selected' : '' }}>Neurology</option>
+                        <option value="Pediatrics" {{ request('specialization') === 'Pediatrics' ? 'selected' : '' }}>Pediatrics</option>
+                        <option value="Orthopedic Surgeon" {{ request('specialization') === 'Orthopedic Surgeon' ? 'selected' : '' }}>Orthopedics</option>
+                    </select>
+                </div>
                 @if(request('search'))
                     <input type="hidden" name="search" value="{{ request('search') }}">
                 @endif
@@ -35,19 +37,28 @@
         </div>
     </div>
 
-    <!-- Doctors Grid -->
+    <!-- Doctors Grid with Enhanced Cards -->
     <div class="row g-4 mb-5">
         @if(isset($doctors) && count($doctors) > 0)
             @foreach ($doctors as $doctor)
             <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
+                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all doctor-card">
                     <div class="card-body text-center p-4">
                         <div class="position-relative mb-4">
-                            @if($doctor->profile_image)
-                                <img src="{{ asset("images/doctors/{$doctor->profile_image}") }}" class="rounded-circle doctor-image" alt="{{ $doctor->doctor_name }}">
-                            @else
-                                <img src="images/doctors/default.jpeg" class="rounded-circle doctor-image" alt="Doctor">
-                            @endif
+                            <div class="doctor-image-container">
+                                @if($doctor->profile_image)
+                                    <img src="{{ asset("images/doctors/{$doctor->profile_image}") }}" class="rounded-circle doctor-image" alt="{{ $doctor->doctor_name }}">
+                                @else
+                                    <img src="images/doctors/default.jpeg" class="rounded-circle doctor-image" alt="Doctor">
+                                @endif
+                                <div class="doctor-overlay">
+                                    <div class="doctor-social">
+                                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="position-absolute bottom-0 end-0">
                                 <span class="badge bg-{{ $doctor->status === 'active' ? 'success' : 'danger' }} rounded-circle p-2">
                                     <i class="fas fa-{{ $doctor->status === 'active' ? 'check' : 'times' }} text-dark"></i>
@@ -57,13 +68,13 @@
                         <h5 class="card-title fw-bold mb-2">{{ $doctor->doctor_name }}</h5>
                         <p class="text-primary mb-3">{{ $doctor->specialization }}</p>
                         <div class="d-flex justify-content-center gap-2 mb-3">
-                            <span class="badge bg-light text-primary border mr-2">{{ $doctor->qualification }}</span>
+                            <span class="badge bg-light text-primary border">{{ $doctor->qualification }}</span>
                             <span class="badge bg-light text-primary border">{{ $doctor->experience }} Years Experience</span>
                         </div>
                         <p class="card-text text-muted mb-4">{{ $doctor->bio ?? 'Specialized healthcare professional' }}</p>
                         <div class="d-grid gap-2">
-                            <a href="#" class="btn btn-outline-primary btn-lg mb-2">View Profile</a>
-                            <a href="#" class="btn btn-primary btn-lg">Book Appointment</a>
+                            <a href="#" class="btn btn-outline-primary btn-lg mb-2 view-profile-btn">View Profile</a>
+                            <a href="#" class="btn btn-primary btn-lg book-appointment-btn">Book Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +82,10 @@
             @endforeach
         @else
             <div class="col-12 text-center">
-                <p class="text-muted">No doctors found.</p>
+                <div class="no-results p-5">
+                    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">No doctors found matching your criteria.</p>
+                </div>
             </div>
         @endif
     </div>
@@ -165,7 +179,7 @@
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             How do I book an appointment with a doctor?
                         </button>
                     </h2>
@@ -177,7 +191,7 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm mb-3">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             What insurance plans do you accept?
                         </button>
                     </h2>
@@ -189,7 +203,7 @@
                 </div>
                 <div class="accordion-item border-0 shadow-sm">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed rounded-3 shadow-sm hover-shadow transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
+                        <button class="accordion-button collapsed rounded-3 shadow-sm transition-all p-1 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: linear-gradient(45deg, #0575f5, #0490f4); color: white; font-weight: 500;">
                             Can I get a second opinion from another doctor?
                         </button>
                     </h2>
@@ -216,7 +230,7 @@
                                 <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
                                     <input name="EMAIL" placeholder="Your email address" class="common-input p-2" onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Your email address'" required="" type="email">
-                                    <button class="btn">Subscribe</button>
+                                    <button class="btn btn-primary">Subscribe</button>
                                 </form>
                             </div>
                         </div>
@@ -229,4 +243,5 @@
         </div>
     </div>
 </div>
+
 @endsection

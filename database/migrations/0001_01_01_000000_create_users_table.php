@@ -53,8 +53,8 @@ return new class extends Migration
             $table->id();
             $table->string('username')->nullable();
             $table->string('email')->unique();
-            $table->string('password')->nullable();
-            $table->integer('role')->nullable();
+            $table->string('password')->unique();
+            $table->integer('role')->default(2);
             $table->string('image')->nullable();
             $table->longText('address')->nullable();
             $table->string('gender')->nullable();
@@ -62,6 +62,7 @@ return new class extends Migration
             $table->integer('phone')->nullable();
             $table->string('blood_type')->nullable();
             $table->string('disease_description')->nullable();
+            $table->string('status')->default('online')->change();
             $table->rememberToken();
             $table->timestamps();
         });

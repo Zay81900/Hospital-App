@@ -3,13 +3,24 @@
 if (!function_exists('formatAvailability')) {
     function formatAvailability($availability)
     {
+        // Handle null or empty input
+        if (empty($availability)) {
+            return 'No availability data';
+        }
         // If already array, use as is; if string, decode
         if (is_array($availability)) {
             $data = $availability;
-        } else {
+        } elseif (is_string($availability)) {
+            $availability = trim($availability);
+            if ($availability === '') {
+                return 'No availability data';
+            }
             $data = json_decode($availability, true);
+        } else {
+            // Not a string or array
+            return 'No availability data';
         }
-        if (!$data) return 'No availability data';
+        if (!$data || !is_array($data)) return 'No availability data';
         
         $daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         $formatted = '<div class="row">';

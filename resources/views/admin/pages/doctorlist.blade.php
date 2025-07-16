@@ -52,7 +52,7 @@
                     {!! formatAvailability($doctor->availability) !!}
                   </td>
                   <td class="align-middle text-center text-md">
-                    <span class="badge badge-md bg-gradient-{{ $doctor->status == 'active' ? 'success' : 'inactive' }}">{{ ucfirst($doctor->status) }}</span>
+                    <span class="badge badge-md bg-gradient-{{ $doctor->status == 'active' ? 'success' : 'danger' }}">{{ ucfirst($doctor->status) }}</span>
                   </td>
                   <td class="text-center" style="border: 1px solid #dee2e6;">
                     <a href="" class="text-success font-weight-bold text-xs pr-2" data-toggle="tooltip" data-original-title="Edit doctor">

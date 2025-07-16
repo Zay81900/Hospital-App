@@ -24,7 +24,7 @@
                   <th class="text-center text-uppercase text-secondary text-s font-weight-bolder ps-2" style="min-width: 150px; width: 150px;">Phone Number</th>
                   <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 80px; width: 80px;">Blood Group</th>
                   <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Disease Description</th>
-                  <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Status</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 220px; width: 220px;">Status</th> --}}
                   <th class="text-center text-uppercase text-secondary text-s font-weight-bolder" style="min-width: 130px; width: 130px;">Action</th>
                 </tr>
               </thead>
@@ -51,11 +51,11 @@
                   <td style="text-align: right; border: 1px solid #dee2e6;">{{ $user->phone }}</td>
                   <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->blood_type }}</td>
                   <td class="text-left" style="border: 1px solid #dee2e6;">{{ $user->disease_description }}</td>
-                  <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-{{ $user->status == 'online' ? 'success' : 'danger' }}">{{ ucfirst($user->status) }}</span>
-                  </td>
+                  {{-- <td class="align-middle text-center text-sm">
+                    <span class="badge badge-sm bg-gradient-{{ $user->status == 'active' ? 'success' : 'danger' }}">{{ ucfirst($user->status) }}</span>
+                  </td> --}}
                   <td class="text-center" style="border: 1px solid #dee2e6;">
-                    <a href="" class="text-success font-weight-bold text-xs pr-2" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="{{ route('admin.users.edit', $user->id) }}" class="text-success font-weight-bold text-xs pr-2" data-toggle="tooltip" data-original-title="Edit user">
                       <i class="fa fa-edit fa-2x" style="margin-right: 7px;"></i>
                     </a>
                     <a href="" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

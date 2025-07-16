@@ -39,6 +39,7 @@ Route::prefix('/admin')->middleware(['auth:web', \App\Http\Middleware\CheckRole:
     Route::get('/userlist', [AdminController::class, 'UserList'])->name('admin.users_list');
     Route::get('/doctorlist', [AdminController::class, 'DoctorList'])->name('admin.doctors_list');
     Route::get('/appointment', [AdminController::class, 'Appointment'])->name('admin.appointment');
+    Route::get('/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
     
     // Admin Appointment Routes
     Route::get('/appointments/{appointment}/show', [AppointmentController::class, 'show'])->name('appointments.show');

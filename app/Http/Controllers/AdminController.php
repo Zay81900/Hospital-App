@@ -31,4 +31,10 @@ class AdminController extends Controller
         $appointments = Appointment::all(); // or Doctor::paginate(10) for pagination
         return view('admin.pages.appointments', compact('appointments'));
     }
+
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        return view('admin.pages.useredit', compact('user'));
+    }
 }

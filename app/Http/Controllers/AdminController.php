@@ -39,13 +39,8 @@ class AdminController extends Controller
         $appointments = Appointment::all(); // or Doctor::paginate(10) for pagination
         return view('admin.pages.appointments', compact('appointments'));
     }
-<<<<<<< HEAD
 
-    public function editUser($id)
-    {
-        $user = User::find($id);
-        return view('admin.pages.useredit', compact('user'));
-    }
+   
 
     public function editDoctor($id)
     {
@@ -64,6 +59,4 @@ class AdminController extends Controller
         return redirect()->back()->withInput()->with('error', 'There was an error updating the doctor.');
     }
 }
-=======
->>>>>>> b34d681ad0a2dc64e17f5d7253b85c1593271bef
 }

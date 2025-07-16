@@ -15,10 +15,18 @@ class AdminController extends Controller
     }
 
     public function UserList()
-{
-    $users = User::all(); // or User::paginate(10) for pagination
-    return view('admin.pages.userlist', compact('users'));
-}
+    {
+        $users = User::all();
+        $editUser = null;
+        return view('admin.pages.userlist', compact('users'));
+    }
+
+    public function editUser($id)
+    {
+        $users = User::all();
+        $editUser = User::find($id);
+        return view('admin.pages.useredit', compact('users', 'editUser'));
+    }
 
     public function DoctorList()
     {
@@ -30,11 +38,5 @@ class AdminController extends Controller
     {
         $appointments = Appointment::all(); // or Doctor::paginate(10) for pagination
         return view('admin.pages.appointments', compact('appointments'));
-    }
-
-    public function editUser($id)
-    {
-        $user = User::find($id);
-        return view('admin.pages.useredit', compact('user'));
     }
 }

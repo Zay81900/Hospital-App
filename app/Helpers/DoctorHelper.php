@@ -3,7 +3,12 @@
 if (!function_exists('formatAvailability')) {
     function formatAvailability($availability)
     {
-        $data = json_decode($availability, true);
+        // If already array, use as is; if string, decode
+        if (is_array($availability)) {
+            $data = $availability;
+        } else {
+            $data = json_decode($availability, true);
+        }
         if (!$data) return 'No availability data';
         
         $daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];

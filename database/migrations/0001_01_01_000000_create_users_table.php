@@ -53,7 +53,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->nullable();
             $table->string('email')->unique();
-            $table->string('password')->nullable();
+            $table->string('password')->unique();
             $table->integer('role')->default(2);
             $table->string('image')->nullable();
             $table->longText('address')->nullable();

@@ -40,7 +40,8 @@ Route::prefix('/admin')->middleware(['auth:web', \App\Http\Middleware\CheckRole:
     Route::get('/doctorlist', [AdminController::class, 'DoctorList'])->name('admin.doctors_list');
     Route::get('/appointment', [AdminController::class, 'Appointment'])->name('admin.appointment');
     Route::get('/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
-    
+    Route::get('/doctors/{id}/edit', [AdminController::class, 'editDoctor'])->name('admin.doctors.edit');
+    Route::put('/doctors/{id}', [AdminController::class, 'updateDoctor'])->name('admin.doctors.update');
     // Admin Appointment Routes
     Route::get('/appointments/{appointment}/show', [AppointmentController::class, 'show'])->name('appointments.show');
     Route::post('/appointments/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])

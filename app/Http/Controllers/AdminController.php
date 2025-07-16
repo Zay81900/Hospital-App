@@ -15,10 +15,18 @@ class AdminController extends Controller
     }
 
     public function UserList()
-{
-    $users = User::all(); // or User::paginate(10) for pagination
-    return view('admin.pages.userlist', compact('users'));
-}
+    {
+        $users = User::all();
+        $editUser = null;
+        return view('admin.pages.userlist', compact('users'));
+    }
+
+    public function editUser($id)
+    {
+        $users = User::all();
+        $editUser = User::find($id);
+        return view('admin.pages.useredit', compact('users', 'editUser'));
+    }
 
     public function DoctorList()
     {
@@ -31,6 +39,7 @@ class AdminController extends Controller
         $appointments = Appointment::all(); // or Doctor::paginate(10) for pagination
         return view('admin.pages.appointments', compact('appointments'));
     }
+<<<<<<< HEAD
 
     public function editUser($id)
     {
@@ -55,4 +64,6 @@ class AdminController extends Controller
         return redirect()->back()->withInput()->with('error', 'There was an error updating the doctor.');
     }
 }
+=======
+>>>>>>> b34d681ad0a2dc64e17f5d7253b85c1593271bef
 }

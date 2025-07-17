@@ -58,7 +58,6 @@
                                 <div class="mb-3">
                                     <label for="availability" class="form-label">Availability</label>
                                     <input type="text" class="form-control" id="availability" name="availability" value="{{ old('availability', is_array($doctor->availability) ? implode(',', $doctor->availability) : $doctor->availability) }}">
-                                    {{-- If you use a more complex structure for availability, adjust this field accordingly --}}
                                 </div>
                             </div>
                         </div>
